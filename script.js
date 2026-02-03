@@ -140,35 +140,17 @@ function populateProjects() {
 
     grid.innerHTML = `<div class="wiki-list">` +
         projectsData.map(p => `
-            <div class="wiki-item" onclick="openWiki(${p.id})">
+            <a href="projects.html" class="wiki-item">
                 <div class="wiki-info">
                     <h3>${p.title}</h3>
                     <span class="wiki-meta">${p.author} | ${p.year}</span>
                 </div>
                 <div class="wiki-arrow">→</div>
-            </div>
+            </a>
         `).join('') + `</div>`;
 }
 
-function openWiki(id) {
-    const p = projectsData.find(p => p.id === id);
-    const modal = document.getElementById('wiki-modal');
-    const body = document.getElementById('wiki-body');
-    if (!modal || !body) return;
-
-    body.innerHTML = `
-        <button class="close-btn-classic" onclick="closeWiki()">ՓԱԿԵԼ</button>
-        <h1 class="serif" style="color: var(--primary-navy); border-bottom: 2px solid var(--accent-gold); padding-bottom: 10px; margin-bottom: 20px;">${p.title}</h1>
-        <div class="classic-content">${p.content}</div>
-    `;
-    modal.classList.add('active');
-    document.body.style.overflow = 'hidden';
-}
-
-function closeWiki() {
-    document.getElementById('wiki-modal').classList.remove('active');
-    document.body.style.overflow = 'auto';
-}
+// Removed openWiki and closeWiki functions as per instruction to link to separate pages.
 
 // POPULATE NEWS (ARTICLE LAYOUT)
 function populateNews() {
@@ -184,32 +166,13 @@ function populateNews() {
                     <span>${n.date}</span>
                 </div>
                 <h3 class="serif">${n.content}</h3>
-                <button class="btn-classic" onclick="openNews(${n.id})">Կարդալ Ամբողջը</button>
+                <a href="news.html" class="btn-classic">Կարդալ Ամբողջը</a>
             </div>
         </article>
     `).join('');
 }
 
-function openNews(id) {
-    const n = newsData.find(n => n.id === id);
-    const modal = document.getElementById('news-modal');
-    const body = document.getElementById('news-body');
-    if (!modal || !body) return;
-
-    body.innerHTML = `
-        <button class="close-btn-classic" onclick="closeNews()">ՓԱԿԵԼ</button>
-        <h1 class="serif" style="color: var(--primary-navy); margin-bottom: 20px;">${n.author}</h1>
-        <p style="color: var(--accent-gold); font-weight: 700; margin-bottom: 20px;">${n.date}</p>
-        <div class="classic-content">${n.fullContent}</div>
-    `;
-    modal.classList.add('active');
-    document.body.style.overflow = 'hidden';
-}
-
-function closeNews() {
-    document.getElementById('news-modal').classList.remove('active');
-    document.body.style.overflow = 'auto';
-}
+// Removed openNews and closeNews functions as per instruction to link to separate pages.
 
 // INITIALIZATION
 document.addEventListener('DOMContentLoaded', () => {
@@ -217,4 +180,3 @@ document.addEventListener('DOMContentLoaded', () => {
     populateProjects();
     populateNews();
 });
-

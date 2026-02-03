@@ -8,119 +8,88 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Noto+Sans+Armenian:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Outfit:wght@100..900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+Armenian:wght@400;700&family=Playfair+Display:wght@700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../style.css?v=3">
 </head>
 
 <body>
-    <div class="aura-container">
-        <div class="aura-blob aura-1"></div>
-        <div class="aura-blob aura-2"></div>
-    </div>
-
-        <nav class="academy-nav">
-        <div class="nav-brand-academy">94 Ավագ Դպրոց</div>
-        <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <line x1="3" y1="12" x2="21" y2="12"></line>
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
-        </button>
-        <div class="academy-links" id="academy-links">
-            <div class="dropdown">
-                <a href="../streams.html" class="academy-link">
-                    Հոսքեր 
-                    <svg class="dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                </a>
-                <div class="dropdown-content">
-                    <a href="humanitarian.html" class="dropdown-item">Հումանիտար</a>
-                    <a href="history.html" class="dropdown-item">Պատմագիտական</a>
-                    <a href="economics.html" class="dropdown-item">Տնտեսագիտական</a>
-                    <a href="ict.html" class="dropdown-item">ՏՀՏ</a>
-                    <a href="physmath.html" class="dropdown-item">Ֆիզմաթ</a>
-                    <a href="biochem.html" class="dropdown-item">Կենսաքիմիա</a>
-                    <a href="art.html" class="dropdown-item">Արվեստ</a>
-                </div>
-            </div>
+    <nav class="academy-nav">
+        <div class="nav-brand-academy serif">94 Ավագ Դպրոց</div>
+        <div class="academy-links">
+            <a href="../index.html" class="academy-link">Գլխավոր</a>
+            <a href="../streams.html" class="academy-link active">Հոսքեր</a>
             <a href="../projects.html" class="academy-link">Նախագծեր</a>
             <a href="../news.html" class="academy-link">Նորություններ</a>
             <a href="../history.html" class="academy-link">Պատմություն</a>
         </div>
     </nav>
 
-    <div class="stream-hero">
-        <img src="../images/stream_ict.png" alt="ICT">
-        <div class="stream-hero-content">
-            <span class="card-tag"
-                style="background: rgba(59, 130, 246, 0.2); padding: 8px 16px; border-radius: 20px; text-shadow: none;">ՀՈՍՔ
-                4</span>
-            <h1 class="serif" style="font-size: 5rem; line-height: 1; margin: 20px 0 10px;">ՏՀՏ</h1>
-            <p style="font-size: 1.2rem; max-width: 600px; color: #ddd;">Ժամանակակից տեխնոլոգիաներ, ծրագրավորում և
-                ինժեներական մտքի զարգացում։</p>
+    <header class="hero-glass-max" style="padding: 40px 5%;">
+        <div class="hero-visual-panoramic" style="height: 300px;">
+            <img src="../images/stream_ict.png" alt="ICT">
         </div>
-    </div>
+        <div class="hero-content-unified">
+            <span
+                style="color: var(--accent-gold); font-weight: 700; text-transform: uppercase; letter-spacing: 2px;">ՀՈՍՔ
+                4</span>
+            <h1 class="serif">ՏՀՏ</h1>
+            <p>Ժամանակակից տեխնոլոգիաներ, ծրագրավորում և ինժեներական մտքի զարգացում:</p>
+        </div>
+    </header>
 
-    <main class="stream-content-wrapper">
-        <div class="stream-card">
-            <h2 class="serif" style="font-size: 2.5rem; margin-bottom: 30px;">Ծրագրի Նկարագրություն</h2>
-            <p style="font-size: 1.2rem; line-height: 1.8; color: var(--text-muted); margin-bottom: 40px;">
-                Տեղեկատվական և հաղորդակցական տեխնոլոգիաների (ՏՀՏ) հոսքը պատրաստում է ապագա ինժեներներին և
-                ծրագրավորողներին։ Սովորողները ծանոթանում են ալգորիթմների, վեբ տեխնոլոգիաների և արհեստական բանականության
-                հիմունքներին։
-            </p>
-
-            <h3 style="font-size: 1.5rem; color: var(--text-pure); margin-bottom: 20px;">Ուսումնասիրվող Առարկաներ</h3>
-            <div class="feature-grid">
-                <div class="feature-item">Ինֆորմատիկա</div>
-                <div class="feature-item">Թվային Գրագիտություն</div>
-                <div class="feature-item">Ռոբոտաշինություն</div>
-                <div class="feature-item">Մաթեմատիկա</div>
-            </div>
-
-            <div style="margin-top: 50px;">
-                <h3 style="font-size: 1.8rem; color: var(--text-pure); margin-bottom: 20px;">Տեխնոլոգիական Զինանոց</h3>
-                <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 20px;">
-                    Սովորողները աշխատում են արդիական գործիքներով և լեզուներով՝ պատրաստվելով շուկայի պահանջներին։
+    <main class="glass-section">
+        <div class="block-card">
+            <div class="block-content">
+                <h2 class="serif" style="font-size: 2.5rem; margin-bottom: 20px;">Ծրագրի Նկարագրություն</h2>
+                <p style="font-size: 1.1rem; color: var(--text-deep); margin-bottom: 30px;">
+                    Տեղեկատվական և հաղորդակցական տեխնոլոգիաների (ՏՀՏ) հոսքը պատրաստում է ապագա ինժեներներին և
+                    ծրագրավորողներին։ Սովորողները ծանոթանում են ալգորիթմների, վեբ տեխնոլոգիաների և արհեստական
+                    բանականության
+                    հիմունքներին։
                 </p>
+
+                <h3 class="serif" style="font-size: 1.5rem; margin-bottom: 20px;">Ուսումնասիրվող Առարկաներ</h3>
+                <ul class="wiki-list" style="margin-bottom: 40px;">
+                    <li class="wiki-item">Ինֆորմատիկա</li>
+                    <li class="wiki-item">Թվային Գրագիտություն</li>
+                    <li class="wiki-item">Ռոբոտաշինություն</li>
+                    <li class="wiki-item">Մաթեմատիկա</li>
+                </ul>
+
+                <h3 class="serif" style="font-size: 1.8rem; margin-bottom: 20px;">Տեխնոլոգիական Զինանոց</h3>
                 <div style="display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 40px;">
                     <span
-                        style="border: 1px solid #3B82F6; color: #3B82F6; padding: 5px 15px; border-radius: 20px;">Python</span>
+                        style="border: 1px solid var(--primary-navy); color: var(--primary-navy); padding: 5px 15px; font-weight: 700;">Python</span>
                     <span
-                        style="border: 1px solid #3B82F6; color: #3B82F6; padding: 5px 15px; border-radius: 20px;">C++</span>
+                        style="border: 1px solid var(--primary-navy); color: var(--primary-navy); padding: 5px 15px; font-weight: 700;">C++</span>
                     <span
-                        style="border: 1px solid #3B82F6; color: #3B82F6; padding: 5px 15px; border-radius: 20px;">HTML/CSS</span>
+                        style="border: 1px solid var(--primary-navy); color: var(--primary-navy); padding: 5px 15px; font-weight: 700;">HTML/CSS</span>
                     <span
-                        style="border: 1px solid #3B82F6; color: #3B82F6; padding: 5px 15px; border-radius: 20px;">JavaScript</span>
+                        style="border: 1px solid var(--primary-navy); color: var(--primary-navy); padding: 5px 15px; font-weight: 700;">JavaScript</span>
                 </div>
 
-                <h3 style="font-size: 1.8rem; color: var(--text-pure); margin-bottom: 20px;">Ապագան IT-ում</h3>
-                <ul
-                    style="list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px;">
-                    <li
-                        style="background: rgba(255,255,255,0.02); padding: 15px; border-radius: 10px; border-left: 3px solid var(--accent-sapphire); color: #ccc;">
-                        💻 Ծրագրային Ապահովման Ճարտարագետ</li>
-                    <li
-                        style="background: rgba(255,255,255,0.02); padding: 15px; border-radius: 10px; border-left: 3px solid var(--accent-sapphire); color: #ccc;">
-                        🔒 Կիբերանվտանգության Մասնագետ</li>
-                    <li
-                        style="background: rgba(255,255,255,0.02); padding: 15px; border-radius: 10px; border-left: 3px solid var(--accent-sapphire); color: #ccc;">
-                        🤖 Ռոբոտաշինության Ինժեներ</li>
-                </ul>
-            </div>
+                <h3 class="serif" style="font-size: 1.8rem; margin-bottom: 20px;">Ապագան IT-ում</h3>
+                <div
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1px; background: var(--border-classic); border: 1px solid var(--border-classic);">
+                    <div style="background: white; padding: 20px;">💻 Ծրագրային Ապահովման Ճարտարագետ</div>
+                    <div style="background: white; padding: 20px;">🔒 Կիբերանվտանգության Մասնագետ</div>
+                    <div style="background: white; padding: 20px;">🤖 Ռոբոտաշինության Ինժեներ</div>
+                </div>
 
-            <div style="margin-top: 60px; text-align: center;">
-                <a href="../streams.html"
-                    style="text-decoration: none; color: var(--text-pure); font-weight: 700; border: 1px solid var(--silk-border); padding: 15px 40px; border-radius: 50px; background: rgba(255,255,255,0.05); transition: 0.3s; display: inline-block;">
-                    Բոլոր Հոսքերը
-                </a>
+                <div style="margin-top: 60px; text-align: center;">
+                    <a href="../streams.html" class="btn-classic">Բոլոր Հոսքերը</a>
+                </div>
             </div>
         </div>
     </main>
 
-    <script src="../script.js"></script>
+    <script src="../script.js?v=3"></script>
+</body>
+
+</html>
+
+<script src="../script.js"></script>
 </body>
 
 </html>
