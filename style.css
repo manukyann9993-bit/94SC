@@ -32,6 +32,19 @@ body {
     font-family: 'Noto Sans Armenian', sans-serif;
     line-height: 1.7;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+/* Scroll Reveal Utilities */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .serif {
@@ -219,6 +232,11 @@ body {
 .block-desc {
     color: var(--text-light);
     margin-bottom: 20px;
+}
+
+/* Counter Animation */
+.stat-number {
+    display: inline-block;
 }
 
 /* 4. LIST-BASED WIKI/PROJECTS */
