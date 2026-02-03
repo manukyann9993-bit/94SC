@@ -50,50 +50,6 @@ const streamsData = [
     }
 ];
 
-const projectsData = [
-    {
-        id: 3,
-        title: "Ռոբոտաշինություն և AI",
-        author: "12-րդ դասարան",
-        year: "2024",
-        summary: "Արհեստական բանականությամբ աշխատող ինքնավար ռոբոտի նախագծում:",
-        content: `
-            <h1>Ռոբոտաշինություն և AI</h1>
-            <p><strong>Հեղինակ՝</strong> 12-րդ դասարան | <strong>Տարեթիվ՝</strong> 2024</p>
-            <hr>
-            <h2>Ներածություն</h2>
-            <p>Այս նախագիծը նպատակ ուներ ստեղծել ռոբոտ, որը կարող է ինքնուրույն կողմնորոշվել տարածության մեջ...</p>
-        `
-    },
-    {
-        id: 2,
-        title: "Էկոլոգիական Մաքրում",
-        author: "11-րդ դասարան",
-        year: "2023",
-        summary: "Դպրոցամերձ տարածքի կանաչապատման և մաքրման ծրագիր:",
-        content: `
-            <h1>Էկոլոգիական Մաքրում</h1>
-            <p><strong>Հեղինակ՝</strong> 11-րդ դասարան | <strong>Տարեթիվ՝</strong> 2023</p>
-            <hr>
-            <h2>Նպատակը</h2>
-            <p>Բարձրացնել էկոլոգիական գիտակցությունը աշակերտների շրջանում...</p>
-        `
-    },
-    {
-        id: 1,
-        title: "Հայոց Պատմության Ուղիներով",
-        author: "10-րդ դասարան",
-        year: "2023",
-        summary: "Ինտերակտիվ քարտեզի ստեղծում պատմական իրադարձություններով:",
-        content: `
-            <h1>Հայոց Պատմության Ուղիներով</h1>
-            <p><strong>Հեղինակ՝</strong> 10-րդ դասարան | <strong>Տարեթիվ՝</strong> 2023</p>
-            <hr>
-            <h2>Նկարագրություն</h2>
-            <p>Ստեղծվել է թվային քարտեզ, որը ցույց է տալիս հայոց պատմության կարևորագույն ճակատամարտերը...</p>
-        `
-    }
-];
 
 const newsData = [
     {
@@ -133,22 +89,7 @@ function populateStreams() {
     `).join('');
 }
 
-// POPULATE PROJECTS (LIST LAYOUT)
-function populateProjects() {
-    const grid = document.getElementById('projects-grid');
-    if (!grid) return;
-
-    grid.innerHTML = `<div class="wiki-list">` +
-        projectsData.map(p => `
-            <a href="projects.html" class="wiki-item">
-                <div class="wiki-info">
-                    <h3>${p.title}</h3>
-                    <span class="wiki-meta">${p.author} | ${p.year}</span>
-                </div>
-                <div class="wiki-arrow">→</div>
-            </a>
-        `).join('') + `</div>`;
-}
+// Removed populateProjects function as per instruction.
 
 // Removed openWiki and closeWiki functions as per instruction to link to separate pages.
 
@@ -177,6 +118,5 @@ function populateNews() {
 // INITIALIZATION
 document.addEventListener('DOMContentLoaded', () => {
     populateStreams();
-    populateProjects();
     populateNews();
 });
