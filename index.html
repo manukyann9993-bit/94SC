@@ -19,6 +19,7 @@
     <nav class="academy-nav">
         <div class="nav-brand-academy serif">94 Ավագ Դպրոց</div>
         <div class="academy-links">
+            <a href="index.html" class="academy-link active">Գլխավոր</a>
             <a href="streams.html" class="academy-link">Հոսքեր</a>
             <a href="news.html" class="academy-link">Նորություններ</a>
             <a href="history.html" class="academy-link">Պատմություն</a>
@@ -38,41 +39,111 @@
         </div>
     </header>
 
-    <!-- Simple Streams Overview -->
-    <main class="glass-section">
+    <!-- About School Section -->
+    <section class="glass-section">
+        <div class="block-card">
+            <div class="block-content">
+                <span class="block-tag">Մեր Մասին</span>
+                <h2 class="serif" style="font-size: 2.5rem; margin-bottom: 20px;">Դպրոցի Պատմությունը և Առաքելությունը
+                </h2>
+                <p style="font-size: 1.1rem; color: var(--text-deep); margin-bottom: 20px;">
+                    Գուրգեն Մարգարյանի անվան հ. 94 ավագ դպրոցը հանդիսանում է Երևանի առաջատար կրթօջախներից մեկը: Մեր
+                    նպատակն է ստեղծել կրթական այնպիսի միջավայր, որտեղ յուրաքանչյուր աշակերտ կկարողանա բացահայտել իր
+                    ներուժը, զարգացնել քննադատական մտածողությունը և պատրաստվել ապագայի մարտահրավերներին:
+                </p>
+                <p style="font-size: 1.1rem; color: var(--text-deep);">
+                    Մենք հավատարիմ ենք մեր արժեքներին՝ որակյալ կրթություն, հայրենասիրություն և անհատի բազմակողմանի
+                    զարգացում:
+                </p>
+            </div>
+            <div class="block-visual">
+                <img src="images/94dproc.jpg" alt="Մեր Դպրոցը">
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Placeholder Section -->
+    <section class="glass-section" style="background: var(--bg-parchment);">
         <div class="section-header-centered">
-            <h2 class="serif">Մեր Հոսքերը</h2>
+            <h2 class="serif">Տեսահոլովակ</h2>
         </div>
-
-        <div class="glass-grid-symmetrical" id="streams-simple-list">
-            <!-- Will be populated by script or kept static for simplicity -->
-            <div class="block-card">
-                <div class="block-visual">
-                    <img src="images/stream_ict.png" alt="ՏՀՏ">
-                </div>
-                <div class="block-content">
-                    <span class="block-tag">Տեխնոլոգիա</span>
-                    <h3 class="block-title serif">ՏՀՏ Հոսք</h3>
-                    <p class="block-desc">Ծրագրավորման և թվային տեխնոլոգիաների խորացված ուսուցում ապագա մասնագետների
-                        համար:</p>
-                    <a href="streams/ict.html" class="btn-classic">Կարդալ Ավելին</a>
-                </div>
-            </div>
-
-            <div class="block-card">
-                <div class="block-visual">
-                    <img src="images/stream_physmath.png" alt="Ֆիզմաթ">
-                </div>
-                <div class="block-content">
-                    <span class="block-tag">Գիտություն</span>
-                    <h3 class="block-title serif">Ֆիզմաթ Հոսք</h3>
-                    <p class="block-desc">Ֆիզիկայի և մաթեմատիկայի խորացված ուսուցում՝ հիմնված փորձարարական գիտելիքների
-                        վրա:</p>
-                    <a href="streams/physmath.html" class="btn-classic">Կարդալ Ավելին</a>
-                </div>
+        <div
+            style="width: 100%; max-width: 1000px; margin: 0 auto; height: 500px; background: #000; border: 4px solid var(--accent-gold); display: flex; align-items: center; justify-content: center; color: white; text-align: center;">
+            <div>
+                <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round"
+                    style="color: var(--accent-gold); margin-bottom: 20px;">
+                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+                <h3 class="serif">Շուտով...</h3>
+                <p>Դպրոցի գովազդային հոլովակը կլինի այստեղ</p>
             </div>
         </div>
-    </main>
+    </section>
+
+    <!-- Latest News Section -->
+    <section class="glass-section">
+        <div class="section-header-centered">
+            <h2 class="serif">Վերջին Նորություններ</h2>
+        </div>
+        <div class="news-social-list" id="latest-news-list">
+            <!-- Dynamically populated by script.js -->
+        </div>
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="news.html" class="btn-classic">Տեսնել Բոլորը</a>
+        </div>
+    </section>
+
+    <!-- School Stats Section -->
+    <section class="glass-section" style="background: var(--primary-navy); color: white;">
+        <div
+            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; text-align: center;">
+            <div>
+                <div style="font-size: 3rem; font-weight: 700; color: var(--accent-gold);" class="serif">500+</div>
+                <div style="text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem;">Աշակերտներ</div>
+            </div>
+            <div>
+                <div style="font-size: 3rem; font-weight: 700; color: var(--accent-gold);" class="serif">30+</div>
+                <div style="text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem;">Ուսուցիչներ</div>
+            </div>
+            <div>
+                <div style="font-size: 3rem; font-weight: 700; color: var(--accent-gold);" class="serif">7</div>
+                <div style="text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem;">Ուսումնական Հոսքեր</div>
+            </div>
+            <div>
+                <div style="font-size: 3rem; font-weight: 700; color: var(--accent-gold);" class="serif">1994</div>
+                <div style="text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem;">Հիմնադրման Տարեթիվ</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="glass-section" style="border-top: 1px solid var(--border-classic);">
+        <div style="display: flex; gap: 60px; flex-wrap: wrap;">
+            <div style="flex: 1; min-width: 300px;">
+                <h3 class="serif" style="font-size: 1.8rem; color: var(--primary-navy); margin-bottom: 20px;">
+                    Կոնտակտային Տվյալներ</h3>
+                <p style="margin-bottom: 10px;">📍 <b>Հասցե:</b> Երևան, Գ. Մարգարյան 94</p>
+                <p style="margin-bottom: 10px;">📞 <b>Հեռախոս:</b> +374 10 000000</p>
+                <p style="margin-bottom: 10px;">📧 <b>Էլ. Փոստ:</b> info@school94.am</p>
+            </div>
+            <div style="flex: 1; min-width: 300px;">
+                <h3 class="serif" style="font-size: 1.8rem; color: var(--primary-navy); margin-bottom: 20px;">Հետևեք Մեզ
+                </h3>
+                <div style="display: flex; gap: 20px;">
+                    <a href="#"
+                        style="color: var(--primary-navy); text-decoration: none; font-weight: 700;">Facebook</a>
+                    <a href="#"
+                        style="color: var(--primary-navy); text-decoration: none; font-weight: 700;">Instagram</a>
+                    <a href="#" style="color: var(--primary-navy); text-decoration: none; font-weight: 700;">YouTube</a>
+                </div>
+            </div>
+        </div>
+        <div
+            style="margin-top: 60px; text-align: center; color: var(--text-light); font-size: 0.9rem; border-top: 1px solid var(--border-classic); padding-top: 20px;">
+            © 2024 Գուրգեն Մարգարյանի անվան 94 Ավագ Դպրոց: Բոլոր իրավունքները պաշտպանված են:
+        </div>
+    </section>
 
     <script src="script.js?v=3"></script>
 </body>

@@ -115,8 +115,32 @@ function populateNews() {
 
 // Removed openNews and closeNews functions as per instruction to link to separate pages.
 
+// POPULATE LATEST NEWS (for home page)
+function populateLatestNews() {
+    const list = document.getElementById('latest-news-list');
+    if (!list) return;
+
+    // Show only last 2 news items
+    const latest = newsData.slice(0, 2);
+
+    list.innerHTML = latest.map(n => `
+        <article class="news-article">
+            <img src="${n.image}" class="news-img" alt="News Image">
+            <div class="news-details">
+                <div class="news-header-meta">
+                    <span>${n.author}</span>
+                    <span>${n.date}</span>
+                </div>
+                <h3 class="serif">${n.content}</h3>
+                <a href="news.html" class="btn-classic">Կարդալ Ամբողջը</a>
+            </div>
+        </article>
+    `).join('');
+}
+
 // INITIALIZATION
 document.addEventListener('DOMContentLoaded', () => {
     populateStreams();
     populateNews();
+    populateLatestNews();
 });
