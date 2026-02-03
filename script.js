@@ -152,28 +152,30 @@ function initScrollReveal() {
     reveals.forEach(el => observer.observe(el));
 }
 
-// COUNTER ANIMATION (Shuffle Style)
+// COUNTER ANIMATION (Smooth Shuffle Style)
 function initCounters() {
     const counters = document.querySelectorAll('.stat-number');
 
     const animateShuffle = (el) => {
         const target = +el.getAttribute('data-target');
         const suffix = el.getAttribute('data-suffix') || '';
-        const duration = 2500; // 2.5 seconds for a "beautiful" longer feel
-        const frameRate = 30; // 30ms per update
+        const duration = 2000; // 2 seconds
+        const frameRate = 20; // High frame rate for smoothness
         const totalFrames = duration / frameRate;
         let frame = 0;
 
         const interval = setInterval(() => {
             frame++;
-
-            // Generate a random-looking number during the shuffle
-            // We scale it closer to target as we progress
             const progress = frame / totalFrames;
-            const randomVal = Math.floor(Math.random() * (target * 1.2)); // Slight overshoot for effect
+
+            // CONVERGENCE: randomness range shrinks as progress increases
+            const randomness = 1 - progress;
+            const deviation = (Math.random() - 0.5) * 2 * (target * randomness);
+            let currentDisplay = Math.floor(target + deviation);
 
             if (frame < totalFrames) {
-                el.innerText = randomVal + suffix;
+                if (currentDisplay < 0) currentDisplay = 0;
+                el.innerText = currentDisplay + suffix;
             } else {
                 el.innerText = target + suffix;
                 clearInterval(interval);
@@ -188,7 +190,7 @@ function initCounters() {
                 observer.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.5 }); // Trigger when 50% visible
+    }, { threshold: 0.5 });
 
     counters.forEach(el => observer.observe(el));
 }
