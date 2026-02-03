@@ -392,13 +392,14 @@ body {
     display: none !important;
 }
 
-background: linear-gradient(135deg, var(--accent-sapphire), var(--accent-amethyst));
-display: flex;
-align-items: center;
-justify-content: center;
-font-weight: bold;
-color: #fff;
-font-size: 1.2rem;
+.news-avatar {
+    background: var(--primary-navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #fff;
+    font-size: 1.2rem;
 }
 
 .news-author-info {
