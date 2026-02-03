@@ -152,32 +152,43 @@ function initScrollReveal() {
     reveals.forEach(el => observer.observe(el));
 }
 
-// COUNTER ANIMATION
+// COUNTER ANIMATION (Shuffle Style)
 function initCounters() {
     const counters = document.querySelectorAll('.stat-number');
-    const speed = 200;
 
-    const startCounter = (el) => {
+    const animateShuffle = (el) => {
         const target = +el.getAttribute('data-target');
-        const count = +el.innerText.replace('+', '');
-        const inc = target / speed;
+        const suffix = el.getAttribute('data-suffix') || '';
+        const duration = 2500; // 2.5 seconds for a "beautiful" longer feel
+        const frameRate = 30; // 30ms per update
+        const totalFrames = duration / frameRate;
+        let frame = 0;
 
-        if (count < target) {
-            el.innerText = Math.ceil(count + inc) + (el.innerText.includes('+') ? '+' : '');
-            setTimeout(() => startCounter(el), 1);
-        } else {
-            el.innerText = target + (el.getAttribute('data-suffix') || '');
-        }
+        const interval = setInterval(() => {
+            frame++;
+
+            // Generate a random-looking number during the shuffle
+            // We scale it closer to target as we progress
+            const progress = frame / totalFrames;
+            const randomVal = Math.floor(Math.random() * (target * 1.2)); // Slight overshoot for effect
+
+            if (frame < totalFrames) {
+                el.innerText = randomVal + suffix;
+            } else {
+                el.innerText = target + suffix;
+                clearInterval(interval);
+            }
+        }, frameRate);
     };
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                startCounter(entry.target);
+                animateShuffle(entry.target);
                 observer.unobserve(entry.target);
             }
         });
-    }, { threshold: 1.0 });
+    }, { threshold: 0.5 }); // Trigger when 50% visible
 
     counters.forEach(el => observer.observe(el));
 }
