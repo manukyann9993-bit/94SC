@@ -152,35 +152,40 @@ function initScrollReveal() {
     reveals.forEach(el => observer.observe(el));
 }
 
-// COUNTER ANIMATION (Smooth Shuffle Style)
+// COUNTER ANIMATION (Cinematic Smooth Shuffle)
 function initCounters() {
     const counters = document.querySelectorAll('.stat-number');
 
     const animateShuffle = (el) => {
         const target = +el.getAttribute('data-target');
         const suffix = el.getAttribute('data-suffix') || '';
-        const duration = 2000; // 2 seconds
-        const frameRate = 20; // High frame rate for smoothness
-        const totalFrames = duration / frameRate;
-        let frame = 0;
+        const duration = 3000; // Longer duration for beauty
+        const startTime = performance.now();
 
-        const interval = setInterval(() => {
-            frame++;
-            const progress = frame / totalFrames;
+        const update = (now) => {
+            const elapsed = now - startTime;
+            const progress = Math.min(elapsed / duration, 1);
 
-            // CONVERGENCE: randomness range shrinks as progress increases
-            const randomness = 1 - progress;
+            // Easing: OutQuad for a smooth deceleration
+            const easedProgress = 1 - (1 - progress) * (1 - progress);
+
+            // Convergence: randomness shrinks as we approach the end
+            const randomness = 1 - easedProgress;
             const deviation = (Math.random() - 0.5) * 2 * (target * randomness);
             let currentDisplay = Math.floor(target + deviation);
 
-            if (frame < totalFrames) {
+            if (progress < 1) {
                 if (currentDisplay < 0) currentDisplay = 0;
                 el.innerText = currentDisplay + suffix;
+                // Variable frame rate: slower updates as we get closer to the end
+                // This makes it feel more "intentional" and smooth
+                requestAnimationFrame(update);
             } else {
                 el.innerText = target + suffix;
-                clearInterval(interval);
             }
-        }, frameRate);
+        };
+
+        requestAnimationFrame(update);
     };
 
     const observer = new IntersectionObserver((entries) => {
