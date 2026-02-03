@@ -145,6 +145,9 @@ function initScrollReveal() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('active');
+            } else {
+                // Remove the class when it leaves the viewport to allow re-triggering
+                entry.target.classList.remove('active');
             }
         });
     }, { threshold: 0.1 });
@@ -157,9 +160,12 @@ function initCounters() {
     const counters = document.querySelectorAll('.stat-number');
 
     const animateShuffle = (el) => {
+        if (el.classList.contains('animating')) return;
+        el.classList.add('animating');
+
         const target = +el.getAttribute('data-target');
         const suffix = el.getAttribute('data-suffix') || '';
-        const duration = 3000;
+        const duration = 2000; // Slightly faster for re-triggers
         const startTime = performance.now();
 
         const run = () => {
@@ -167,7 +173,6 @@ function initCounters() {
             const elapsed = now - startTime;
             const progress = Math.min(elapsed / duration, 1);
 
-            // DECELERATION LOGIC:
             const randomness = Math.pow(1 - progress, 2);
             const deviation = (Math.random() - 0.5) * 2 * (target * randomness);
             let currentDisplay = Math.floor(target + deviation);
@@ -176,11 +181,11 @@ function initCounters() {
                 if (currentDisplay < 0) currentDisplay = 0;
                 el.innerText = currentDisplay + suffix;
 
-                // INCREASE DELAY: Start fast (20ms), end slow (~250ms)
-                const delay = 20 + (Math.pow(progress, 2) * 230);
+                const delay = 20 + (Math.pow(progress, 2) * 150);
                 setTimeout(run, delay);
             } else {
                 el.innerText = target + suffix;
+                el.classList.remove('animating');
             }
         };
 
@@ -191,7 +196,10 @@ function initCounters() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 animateShuffle(entry.target);
-                observer.unobserve(entry.target);
+            } else {
+                // Reset counter to 0 so it's ready to shuffle again when it returns
+                const suffix = entry.target.getAttribute('data-suffix') || '';
+                entry.target.innerText = '0' + suffix;
             }
         });
     }, { threshold: 0.5 });
