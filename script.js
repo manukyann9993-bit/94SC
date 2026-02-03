@@ -152,40 +152,39 @@ function initScrollReveal() {
     reveals.forEach(el => observer.observe(el));
 }
 
-// COUNTER ANIMATION (Cinematic Smooth Shuffle)
+// COUNTER ANIMATION (Decelerating Reel Style)
 function initCounters() {
     const counters = document.querySelectorAll('.stat-number');
 
     const animateShuffle = (el) => {
         const target = +el.getAttribute('data-target');
         const suffix = el.getAttribute('data-suffix') || '';
-        const duration = 3000; // Longer duration for beauty
+        const duration = 3000;
         const startTime = performance.now();
 
-        const update = (now) => {
+        const run = () => {
+            const now = performance.now();
             const elapsed = now - startTime;
             const progress = Math.min(elapsed / duration, 1);
 
-            // Easing: OutQuad for a smooth deceleration
-            const easedProgress = 1 - (1 - progress) * (1 - progress);
-
-            // Convergence: randomness shrinks as we approach the end
-            const randomness = 1 - easedProgress;
+            // DECELERATION LOGIC:
+            const randomness = Math.pow(1 - progress, 2);
             const deviation = (Math.random() - 0.5) * 2 * (target * randomness);
             let currentDisplay = Math.floor(target + deviation);
 
             if (progress < 1) {
                 if (currentDisplay < 0) currentDisplay = 0;
                 el.innerText = currentDisplay + suffix;
-                // Variable frame rate: slower updates as we get closer to the end
-                // This makes it feel more "intentional" and smooth
-                requestAnimationFrame(update);
+
+                // INCREASE DELAY: Start fast (20ms), end slow (~250ms)
+                const delay = 20 + (Math.pow(progress, 2) * 230);
+                setTimeout(run, delay);
             } else {
                 el.innerText = target + suffix;
             }
         };
 
-        requestAnimationFrame(update);
+        run();
     };
 
     const observer = new IntersectionObserver((entries) => {
