@@ -9,74 +9,71 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Noto+Sans+Armenian:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Outfit:wght@100..900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+Armenian:wght@400;700&family=Playfair+Display:wght@700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <!-- Dynamic Aura Background -->
-    <div class="aura-container">
-        <div class="aura-blob aura-1"></div>
-        <div class="aura-blob aura-2"></div>
-    </div>
-
-    <!-- Minimalist Academy Nav -->
+    <!-- Simple Classic Nav -->
     <nav class="academy-nav">
-        <div class="nav-brand-academy">94 Ավագ Դպրոց</div>
-        <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <line x1="3" y1="12" x2="21" y2="12"></line>
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
-        </button>
-        <div class="academy-links" id="academy-links">
-            <div class="dropdown">
-                <a href="streams.html" class="academy-link">
-                    Հոսքեր
-                    <svg class="dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="6 9 12 15 18 9"></polyline>
-                    </svg>
-                </a>
-                <div class="dropdown-content">
-                    <a href="streams/humanitarian.html" class="dropdown-item">Հումանիտար</a>
-                    <a href="streams/history.html" class="dropdown-item">Պատմագիտական</a>
-                    <a href="streams/economics.html" class="dropdown-item">Տնտեսագիտական</a>
-                    <a href="streams/ict.html" class="dropdown-item">ՏՀՏ</a>
-                    <a href="streams/physmath.html" class="dropdown-item">Ֆիզմաթ</a>
-                    <a href="streams/biochem.html" class="dropdown-item">Կենսաքիմիա</a>
-                    <a href="streams/art.html" class="dropdown-item">Արվեստ</a>
-                </div>
-            </div>
-            <a href="projects" class="academy-link">Նախագծեր</a>
-            <a href="news" class="academy-link">Նորություններ</a>
-            <a href="history" class="academy-link">Պատմություն</a>
+        <div class="nav-brand-academy serif">94 Ավագ Դպրոց</div>
+        <div class="academy-links">
+            <a href="streams.html" class="academy-link">Հոսքեր</a>
+            <a href="projects.html" class="academy-link">Նախագծեր</a>
+            <a href="news.html" class="academy-link">Նորություններ</a>
+            <a href="history.html" class="academy-link">Պատմություն</a>
         </div>
     </nav>
 
-    <!-- Unified Panoramic Hero with Glass Lens -->
+    <!-- Classic Hero Section -->
     <header class="hero-glass-max">
         <div class="hero-visual-panoramic">
             <img src="images/94dproc.jpg" alt="Գ. Մարգարյանի անվան 94 Ավագ Դպրոց">
         </div>
-        <div class="glass-lens-hero">
-            <div class="hero-content-unified">
-                <h1 class="serif">Բարի Գալուստ <br><span style="color: var(--accent-sapphire);">94 Ավագ Դպրոց</span>
-                </h1>
-                <p>Գևորգ Մարգարյանի անվան թիվ 94 ավագ դպրոց: Հիմնադրվել է 1994 թվականին: Մենք կերտում ենք ապագայի տեսիլք
-                    ունեցող առաջնորդներին:</p>
+        <div class="hero-content-unified">
+            <h1 class="serif">Բարի Գալուստ <br><span style="color: var(--accent-gold);">94 Ավագ Դպրոց</span></h1>
+            <p>Գևորգ Մարգարյանի անվան թիվ 94 ավագ դպրոց: Հիմնադրվել է 1994 թվականին: Մենք կերտում ենք ապագայի տեսիլք
+                ունեցող առաջնորդներին:</p>
+            <a href="streams.html" class="btn-classic">Բացահայտել Հոսքերը</a>
+        </div>
+    </header>
 
-                <div style="margin-top: 40px; display: flex; gap: 20px; justify-content: center;">
-                    <a href="streams"
-                        style="padding: 15px 40px; background: var(--accent-sapphire); color: white; text-decoration: none; border-radius: 30px; font-weight: bold; transition: 0.3s;">Բացահայտել
-                        Հոսքերը</a>
+    <!-- Simple Streams Overview -->
+    <main class="glass-section">
+        <div class="section-header-centered">
+            <h2 class="serif">Մեր Հոսքերը</h2>
+        </div>
+
+        <div class="glass-grid-symmetrical" id="streams-simple-list">
+            <!-- Will be populated by script or kept static for simplicity -->
+            <div class="block-card">
+                <div class="block-visual">
+                    <img src="images/stream_ict.png" alt="ՏՀՏ">
+                </div>
+                <div class="block-content">
+                    <span class="block-tag">Տեխնոլոգիա</span>
+                    <h3 class="block-title serif">ՏՀՏ Հոսք</h3>
+                    <p class="block-desc">Ծրագրավորման և թվային տեխնոլոգիաների խորացված ուսուցում ապագա մասնագետների
+                        համար:</p>
+                    <a href="streams/ict.html" class="btn-classic">Կարդալ Ավելին</a>
+                </div>
+            </div>
+
+            <div class="block-card">
+                <div class="block-visual">
+                    <img src="images/stream_physmath.png" alt="Ֆիզմաթ">
+                </div>
+                <div class="block-content">
+                    <span class="block-tag">Գիտություն</span>
+                    <h3 class="block-title serif">Ֆիզմաթ Հոսք</h3>
+                    <p class="block-desc">Ֆիզիկայի և մաթեմատիկայի խորացված ուսուցում՝ հիմնված փորձարարական գիտելիքների
+                        վրա:</p>
+                    <a href="streams/physmath.html" class="btn-classic">Կարդալ Ավելին</a>
                 </div>
             </div>
         </div>
-    </header>
+    </main>
 
     <script src="script.js"></script>
 </body>

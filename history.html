@@ -5,96 +5,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Պատմություն | 94 Ավագ Դպրոց</title>
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Noto+Sans+Armenian:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Outfit:wght@100..900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+Armenian:wght@400;700&family=Playfair+Display:wght@700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div class="aura-container">
-        <div class="aura-blob aura-1"></div>
-        <div class="aura-blob aura-2"></div>
-    </div>
-
-        <nav class="academy-nav">
-        <div class="nav-brand-academy">94 Ավագ Դպրոց</div>
-        <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <line x1="3" y1="12" x2="21" y2="12"></line>
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
-        </button>
-        <div class="academy-links" id="academy-links">
-            <div class="dropdown">
-                <a href="streams.html" class="academy-link">
-                    Հոսքեր 
-                    <svg class="dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                </a>
-                <div class="dropdown-content">
-                    <a href="streams/humanitarian.html" class="dropdown-item">Հումանիտար</a>
-                    <a href="streams/history.html" class="dropdown-item">Պատմագիտական</a>
-                    <a href="streams/economics.html" class="dropdown-item">Տնտեսագիտական</a>
-                    <a href="streams/ict.html" class="dropdown-item">ՏՀՏ</a>
-                    <a href="streams/physmath.html" class="dropdown-item">Ֆիզմաթ</a>
-                    <a href="streams/biochem.html" class="dropdown-item">Կենսաքիմիա</a>
-                    <a href="streams/art.html" class="dropdown-item">Արվեստ</a>
-                </div>
-            </div>
+    <nav class="academy-nav">
+        <div class="nav-brand-academy serif">94 Ավագ Դպրոց</div>
+        <div class="academy-links">
+            <a href="index.html" class="academy-link">Գլխավոր</a>
+            <a href="streams.html" class="academy-link">Հոսքեր</a>
             <a href="projects.html" class="academy-link">Նախագծեր</a>
             <a href="news.html" class="academy-link">Նորություններ</a>
-            <a href="history.html" class="academy-link">Պատմություն</a>
+            <a href="history.html" class="academy-link active">Պատմություն</a>
         </div>
     </nav>
 
-    <header class="hero-glass-max" style="height: 80vh; min-height: 600px;">
-        <div class="hero-visual-panoramic">
+    <header class="hero-glass-max" style="padding: 40px 5%;">
+        <div class="hero-visual-panoramic" style="height: 300px;">
             <img src="images/94dproc.jpg" alt="Դպրոցի տեսարան">
         </div>
-        <div class="glass-lens-hero">
-            <div class="hero-content-unified">
-                <h1 class="serif" style="font-size: 4rem;">Դպրոցի <span
-                        style="color: var(--accent-sapphire);">Տարեգրությունը</span></h1>
-            </div>
+        <div class="hero-content-unified">
+            <h1 class="serif">Դպրոցի <span style="color: var(--accent-gold);">Տարեգրությունը</span></h1>
         </div>
     </header>
 
-    <main class="glass-section" style="padding-top: 0;">
+    <main class="glass-section">
         <div class="history-container">
             <div class="history-chapter">
-                <span class="chapter-year">1994</span>
-                <h2 class="chapter-title">Սկզբնավորում</h2>
-                <p class="chapter-text">
+                <h3 class="serif" style="color: var(--accent-gold); font-size: 2rem;">1994</h3>
+                <h2 class="serif" style="color: var(--primary-navy); margin-bottom: 15px;">Սկզբնավորում</h2>
+                <p>
                     Անկախության արշալույսին, երբ նոր էր ձևավորվում Հայաստանի Հանրապետության կրթական համակարգը,
                     հիմնադրվեց թիվ 94 ավագ դպրոցը։ Այն կոչված էր դառնալու գիտելիքի և դաստիարակության դարբնոց՝ կրելով հայ
                     մեծանուն զավակների պատգամները։
                 </p>
             </div>
 
-            <div class="history-chapter">
-                <span class="chapter-year">2005</span>
-                <h2 class="chapter-title">Անվանակոչություն</h2>
-                <p class="chapter-text">
+            <div class="history-chapter"
+                style="margin-top: 60px; padding-top: 60px; border-top: 1px solid var(--border-classic);">
+                <h3 class="serif" style="color: var(--accent-gold); font-size: 2rem;">2005</h3>
+                <h2 class="serif" style="color: var(--primary-navy); margin-bottom: 15px;">Անվանակոչություն</h2>
+                <p>
                     Դպրոցը հպարտությամբ անվանակոչվեց հայ ազգի հերոս Գուրգեն Մարգարյանի անունով։ Այդ օրվանից սկսած՝
                     դպրոցի յուրաքանչյուր աշակերտ իր մեջ կրում է հերոսի անմահ հիշատակը և ձգտում է արժանի լինել այդ բարձր
                     պատվին։
                 </p>
-                <div class="quote-block">
-                    «Մեր հերոսները մեռնում են, որպեսզի մենք ապրենք, և մենք պարտավոր ենք ապրել այնպես, որ արժանի լինենք
-                    նրանց զոհողությանը։»
-                    <div class="signature">— Գ. Մարգարյանի հիշատակին</div>
-                </div>
             </div>
 
-            <div class="history-chapter">
-                <span class="chapter-year">2010 - ԱՌ ԱՅՍՕՐ</span>
-                <h2 class="chapter-title">Զարգացման Ուղին</h2>
-                <p class="chapter-text">
+            <div class="history-chapter"
+                style="margin-top: 60px; padding-top: 60px; border-top: 1px solid var(--border-classic);">
+                <h3 class="serif" style="color: var(--accent-gold); font-size: 2rem;">2010 - ԱՌ ԱՅՍՕՐ</h3>
+                <h2 class="serif" style="color: var(--primary-navy); margin-bottom: 15px;">Զարգացման Ուղին</h2>
+                <p>
                     Տարիների ընթացքում դպրոցը վերածվեց կրթական գերազանցության կենտրոնի։ Ներդրվեցին նորագույն
                     տեխնոլոգիաներ, բացվեցին մասնագիտական հոսքեր, և մեր շրջանավարտները սկսեցին գրավել բարձունքներ աշխարհի
                     լավագույն համալսարաններում։
@@ -107,4 +74,3 @@
 </body>
 
 </html>
-

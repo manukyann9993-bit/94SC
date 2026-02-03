@@ -8,82 +8,47 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Noto+Sans+Armenian:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Outfit:wght@100..900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+Armenian:wght@400;700&family=Playfair+Display:wght@700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div class="aura-container">
-        <div class="aura-blob aura-1"></div>
-        <div class="aura-blob aura-2"></div>
-    </div>
-
-        <nav class="academy-nav">
-        <div class="nav-brand-academy">94 Ավագ Դպրոց</div>
-        <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <line x1="3" y1="12" x2="21" y2="12"></line>
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
-        </button>
-        <div class="academy-links" id="academy-links">
-            <div class="dropdown">
-                <a href="streams.html" class="academy-link">
-                    Հոսքեր 
-                    <svg class="dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                </a>
-                <div class="dropdown-content">
-                    <a href="streams/humanitarian.html" class="dropdown-item">Հումանիտար</a>
-                    <a href="streams/history.html" class="dropdown-item">Պատմագիտական</a>
-                    <a href="streams/economics.html" class="dropdown-item">Տնտեսագիտական</a>
-                    <a href="streams/ict.html" class="dropdown-item">ՏՀՏ</a>
-                    <a href="streams/physmath.html" class="dropdown-item">Ֆիզմաթ</a>
-                    <a href="streams/biochem.html" class="dropdown-item">Կենսաքիմիա</a>
-                    <a href="streams/art.html" class="dropdown-item">Արվեստ</a>
-                </div>
-            </div>
-            <a href="projects.html" class="academy-link">Նախագծեր</a>
+    <nav class="academy-nav">
+        <div class="nav-brand-academy serif">94 Ավագ Դպրոց</div>
+        <div class="academy-links">
+            <a href="index.html" class="academy-link">Գլխավոր</a>
+            <a href="streams.html" class="academy-link">Հոսքեր</a>
+            <a href="projects.html" class="academy-link active">Նախագծեր</a>
             <a href="news.html" class="academy-link">Նորություններ</a>
             <a href="history.html" class="academy-link">Պատմություն</a>
         </div>
     </nav>
 
-    <header class="hero-glass-max" style="height: 80vh;">
-        <div class="hero-visual-panoramic">
+    <header class="hero-glass-max" style="padding: 40px 5%;">
+        <div class="hero-visual-panoramic" style="height: 300px;">
             <img src="images/94dproc.jpg" alt="Դպրոցի տեսարան">
         </div>
-        <div class="glass-lens-hero">
-            <div class="hero-content-unified">
-                <h1 class="serif">Մեր <span style="color: var(--accent-sapphire);">Նախագծերը</span></h1>
-                <p>Սովորողների կատարած հետազոտական և ստեղծագործական աշխատանքները:</p>
-            </div>
+        <div class="hero-content-unified">
+            <h1 class="serif">Մեր <span style="color: var(--accent-gold);">Նախագծերը</span></h1>
+            <p>Սովորողների կատարած հետազոտական և ստեղծագործական աշխատանքները:</p>
         </div>
     </header>
 
     <main class="glass-section">
-        <div id="projects-grid" class="glass-grid-symmetrical">
-            <!-- Populated by JS -->
+        <div id="projects-grid">
+            <!-- Populated by JS in list format -->
         </div>
     </main>
 
-    <!-- Wikipedia Modal -->
+    <!-- Project Modal -->
     <div id="wiki-modal" class="portal-overlay">
-        <div id="wiki-body" class="wiki-paper">
+        <div id="wiki-body" class="app-portal-frame">
             <!-- Populated by JS -->
         </div>
     </div>
 
     <script src="script.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // We will add populateProjects to script.js
-            if (typeof populateProjects === 'function') populateProjects();
-        });
-    </script>
 </body>
 
 </html>
-

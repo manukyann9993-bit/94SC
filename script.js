@@ -50,140 +50,6 @@ const streamsData = [
     }
 ];
 
-// CAROUSEL LOGIC
-let currentSlide = 0;
-let carouselInterval;
-const autoPlayDelay = 5000;
-
-function populateStreams() {
-    const track = document.getElementById('streams-track');
-    if (!track) return;
-
-    // Clear existing content
-    track.innerHTML = '';
-
-    // Create Slides
-    track.innerHTML = streamsData.map((s, index) => `
-        <div class="carousel-slide ${index === 0 ? 'active-slide' : ''}" data-index="${index}">
-            <a href="${s.url}" class="glass-card-carousel" style="text-decoration: none; color: inherit;">
-                <div class="card-bg-subtle">
-                    <img src="${s.img}" alt="${s.title}">
-                </div>
-                <div class="card-content-max">
-                    <span class="card-tag">ՀՈՍՔ ${index + 1}</span>
-                    <h3 class="serif">${s.title}</h3>
-                    <p>${s.summary}</p>
-                </div>
-            </a>
-        </div>
-    `).join('');
-
-    updateCarousel();
-    startAutoPlay();
-
-    // Pause on hover
-    const container = document.querySelector('.streams-carousel-container');
-    if (container) {
-        container.addEventListener('mouseenter', stopAutoPlay);
-        container.addEventListener('mouseleave', startAutoPlay);
-    }
-}
-
-function updateCarousel() {
-    const track = document.getElementById('streams-track');
-    const slides = document.querySelectorAll('.carousel-slide');
-    if (!track || slides.length === 0) return;
-
-    // Get number of visible slides based on window width
-    let slidesPerView = 1;
-    if (window.innerWidth > 1024) slidesPerView = 2; // Default to 2 cards
-    else if (window.innerWidth > 768) slidesPerView = 2; // Tablet 2
-
-    const maxIndex = slides.length - slidesPerView;
-
-    // Looping logic correction
-    if (currentSlide < 0) currentSlide = maxIndex; // Go to end
-    if (currentSlide > maxIndex) currentSlide = 0; // Go to start
-
-    // Calculate move percentage
-    // Each slide width % is 100 / slidesPerView.
-    // We move by index * (100 / slidesPerView) but we must account for gap?
-    // Flexbox gap handling in transform is tricky. safer to use slide width px or simpler calc.
-    // CSS uses calc(33.333% - 20px) etc.
-    // Let's rely on slide offsetWidth which includes gaps if we account for it, or just %.
-
-    // Simpler approach: Slide width includes gap in calculation if we assume uniform breakdown
-    const slideWidthPercent = 100 / slidesPerView;
-    // Apply transform. Note: Gap logic in pure % transform is slightly off without calc, 
-    // but if we move by 100% / visual count, it works if container fits exactly.
-    // To make it perfect with gap, we can scroll the track? 
-    // Or we use the property that slide width is (100% - totalGaps)/N.
-    // Calculate pixel-based stride (Slide Width + Gap)
-    const slide = slides[0];
-    const trackStyle = window.getComputedStyle(track);
-    const gap = parseFloat(trackStyle.gap) || 0;
-    const stride = slide.offsetWidth + gap;
-
-    // Move track by pixels
-    const translateX = -(currentSlide * stride);
-    track.style.transform = `translateX(${translateX}px)`;
-
-    // Update active class
-    // Update active class
-    slides.forEach((s, index) => {
-        // Updated active logic for 2-card support
-        let isActive = false;
-        if (slidesPerView === 2) isActive = (index === currentSlide || index === currentSlide + 1);
-        else if (slidesPerView === 1) isActive = (index === currentSlide);
-        else isActive = (index === currentSlide + 1);
-
-        s.classList.toggle('active-slide', isActive);
-        return; // Skip old logic below (hacky but safe for now)
-
-        // Actually, logic for active slide depends on view. 
-        // For 3 cards, if index 0 is left, index 1 is center.
-        // Let's keep simple logic: highlights the one in "focus".
-        // If 3 viewed, maybe highlight the 2nd one (index + 1)
-        if (slidesPerView === 3) {
-            s.classList.toggle('active-slide', index === currentSlide + 1);
-        } else if (slidesPerView === 1) {
-            s.classList.toggle('active-slide', index === currentSlide);
-        } else {
-            // For 2 cards, maybe no center highlight or highlight first?
-            s.classList.toggle('active-slide', index === currentSlide);
-        }
-    });
-}
-
-function moveCarousel(direction) {
-    currentSlide += direction;
-    updateCarousel();
-    resetAutoPlay();
-}
-
-function startAutoPlay() {
-    stopAutoPlay();
-    carouselInterval = setInterval(() => {
-        moveCarousel(1);
-    }, autoPlayDelay);
-}
-
-function stopAutoPlay() {
-    if (carouselInterval) clearInterval(carouselInterval);
-}
-
-function resetAutoPlay() {
-    stopAutoPlay();
-    startAutoPlay();
-}
-
-// Update on resize
-window.addEventListener('resize', updateCarousel);
-
-
-// Existing Streams Data...
-// (Assuming populateStreams is called conditionally on streams.html)
-
 const projectsData = [
     {
         id: 3,
@@ -197,12 +63,6 @@ const projectsData = [
             <hr>
             <h2>Ներածություն</h2>
             <p>Այս նախագիծը նպատակ ուներ ստեղծել ռոբոտ, որը կարող է ինքնուրույն կողմնորոշվել տարածության մեջ...</p>
-            <h2>Մեթոդաբանություն</h2>
-            <p>Օգտագործվել են Python ծրագրավորման լեզուն և Raspberry Pi միկրոհամակարգիչը...</p>
-            <h2>Արդյունքներ</h2>
-            <p>Ռոբոտը հաջողությամբ անցավ լաբիրինթոսը 3 րոպեում:</p>
-            <h2>Եզրակացություն</h2>
-            <p>AI տեխնոլոգիաների կիրառումը դպրոցական մակարդակում հնարավոր է և արդյունավետ:</p>
         `
     },
     {
@@ -237,12 +97,12 @@ const projectsData = [
 
 const newsData = [
     {
-        id: 1,
-        author: "Դպրոցի Տնօրինություն",
-        date: "20 Հունվար, 2024",
-        image: "images/94dproc.jpg",
-        content: "Սիրելի աշակերտներ և ծնողներ, հայտնում ենք, որ...",
-        fullContent: "Սիրելի աշակերտներ և ծնողներ, հայտնում ենք, որ հաջորդ շաբաթվանից մեկնարկում են օլիմպիադաների դպրոցական փուլերը: Խնդրում ենք բոլոր մասնակիցներին ներկայանալ ժամանակին: Հաջողություն ենք մաղթում բոլորին:"
+        id: 3,
+        author: "Գրադարանավար",
+        date: "01 Մարտ, 2024",
+        image: "images/stream_history.png",
+        content: "Գրադարանը համալրվել է նոր մասնագիտական գրականությամբ...",
+        fullContent: "Ուրախությամբ տեղեկացնում ենք, որ մեր գրադարանը համալրվել է նոր մասնագիտական և գեղարվեստական գրականությամբ: Բոլոր ցանկացողները կարող են այցելել և ծանոթանալ նոր գրքերին:"
     },
     {
         id: 2,
@@ -251,50 +111,55 @@ const newsData = [
         image: "images/stream_ict.png",
         content: "Մեր դպրոցի թիմը հաղթանակ տարավ ինտելեկտուալ խաղում...",
         fullContent: "Մեր դպրոցի թիմը փայլուն հաղթանակ տարավ քաղաքային ինտելեկտուալ խաղում՝ գրավելով առաջին պատվավոր տեղը: Շնորհավորում ենք թիմի անդամներին և մաղթում նորանոր հաջողություններ:"
-    },
-    {
-        id: 3,
-        author: "Գրադարանավար",
-        date: "01 Մարտ, 2024",
-        image: "images/stream_history.png",
-        content: "Գրադարանը համալրվել է նոր մասնագիտական գրականությամբ...",
-        fullContent: "Ուրախությամբ տեղեկացնում ենք, որ մեր գրադարանը համալրվել է նոր մասնագիտական և գեղարվեստական գրականությամբ: Բոլոր ցանկացողները կարող են այցելել և ծանոթանալ նոր գրքերին:"
     }
 ];
 
-function populateProjects() {
-    const grid = document.getElementById('projects-grid');
-    if (!grid) return;
+// POPULATE STREAMS (SIMPLE BLOCK LAYOUT)
+function populateStreams() {
+    const list = document.getElementById('streams-simple-list');
+    if (!list) return;
 
-    // Sort by ID descending
-    const sortedProjects = [...projectsData].sort((a, b) => b.id - a.id);
-
-    grid.innerHTML = sortedProjects.map(p => `
-        <div class="wiki-card" onclick="openWiki(${p.id})">
-            <span class="wiki-id">#${p.id}</span>
-            <div class="wiki-title">${p.title}</div>
-            <div class="wiki-meta">Հեղինակ: ${p.author} | ${p.year}</div>
-            <p>${p.summary}</p>
+    list.innerHTML = streamsData.map(s => `
+        <div class="block-card">
+            <div class="block-visual">
+                <img src="${s.img}" alt="${s.title}">
+            </div>
+            <div class="block-content">
+                <h3 class="block-title serif">${s.title} Հոսք</h3>
+                <p class="block-desc">${s.summary}</p>
+                <a href="${s.url}" class="btn-classic">Կարդալ Ավելին</a>
+            </div>
         </div>
     `).join('');
 }
 
+// POPULATE PROJECTS (LIST LAYOUT)
+function populateProjects() {
+    const grid = document.getElementById('projects-grid');
+    if (!grid) return;
+
+    grid.innerHTML = `<div class="wiki-list">` +
+        projectsData.map(p => `
+            <div class="wiki-item" onclick="openWiki(${p.id})">
+                <div class="wiki-info">
+                    <h3>${p.title}</h3>
+                    <span class="wiki-meta">${p.author} | ${p.year}</span>
+                </div>
+                <div class="wiki-arrow">→</div>
+            </div>
+        `).join('') + `</div>`;
+}
+
 function openWiki(id) {
-    const project = projectsData.find(p => p.id === id);
+    const p = projectsData.find(p => p.id === id);
     const modal = document.getElementById('wiki-modal');
     const body = document.getElementById('wiki-body');
+    if (!modal || !body) return;
 
     body.innerHTML = `
-        <button class="portal-close-max" style="position:absolute; top: 20px; right: 20px; color: #fff; background: rgba(255,255,255,0.1);" onclick="closeWiki()">
-             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-        </button>
-        <h1 style="border-bottom: 2px solid #555; padding-bottom: 15px; margin-bottom: 30px;">${project.title}</h1>
-        <div style="font-family: 'Times New Roman', serif; font-size: 1.2rem; line-height: 1.8;">
-             ${project.content}
-        </div>
+        <button class="close-btn-classic" onclick="closeWiki()">ՓԱԿԵԼ</button>
+        <h1 class="serif" style="color: var(--primary-navy); border-bottom: 2px solid var(--accent-gold); padding-bottom: 10px; margin-bottom: 20px;">${p.title}</h1>
+        <div class="classic-content">${p.content}</div>
     `;
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
@@ -305,66 +170,37 @@ function closeWiki() {
     document.body.style.overflow = 'auto';
 }
 
+// POPULATE NEWS (ARTICLE LAYOUT)
 function populateNews() {
     const grid = document.getElementById('news-grid');
     if (!grid) return;
 
-    // Sort by ID desc
-    const sortedNews = [...newsData].sort((a, b) => b.id - a.id);
-
-    grid.innerHTML = sortedNews.map(n => `
-        <div class="news-card-social">
-            <div class="news-header">
-                <div class="news-avatar">${n.author[0]}</div>
-                <div class="news-author-info">
-                    <span class="news-author">${n.author}</span>
+    grid.innerHTML = newsData.map(n => `
+        <article class="news-article">
+            <img src="${n.image}" class="news-img" alt="News Image">
+            <div class="news-details">
+                <div class="news-header-meta">
+                    <span>${n.author}</span>
+                    <span>${n.date}</span>
                 </div>
+                <h3 class="serif">${n.content}</h3>
+                <button class="btn-classic" onclick="openNews(${n.id})">Կարդալ Ամբողջը</button>
             </div>
-            
-            <div class="news-body">
-                ${n.content}
-            </div>
-
-            <div class="news-image-container">
-                <img src="${n.image}" alt="News Image">
-            </div>
-
-            <div class="news-meta-footer">
-                <span class="news-date-small">${n.date}</span>
-                <div class="news-read-more" onclick="openNews(${n.id})">Կարդալ Ավելին</div>
-            </div>
-        </div>
+        </article>
     `).join('');
 }
 
 function openNews(id) {
-    const item = newsData.find(n => n.id === id);
+    const n = newsData.find(n => n.id === id);
     const modal = document.getElementById('news-modal');
     const body = document.getElementById('news-body');
+    if (!modal || !body) return;
 
     body.innerHTML = `
-        <button class="portal-close-max" onclick="closeNews()" style="top: 20px; right: 20px; z-index: 2200;">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-        </button>
-        
-        <div style="flex: 1; overflow: hidden; position: relative;">
-            <img src="${item.image}" style="width: 100%; height: 100%; object-fit: cover;" alt="News Cover">
-            <div style="position: absolute; inset: 0; background: linear-gradient(to top, var(--bg-deep) 10%, transparent 80%);"></div>
-        </div>
-
-        <div style="padding: 40px; color: #fff; flex: 1; overflow-y: auto;">
-            <div class="news-header" style="margin-bottom: 30px;">
-                <div class="news-avatar" style="width: 60px; height: 60px; font-size: 1.5rem;">${item.author[0]}</div>
-                <div class="news-author-info">
-                    <span class="news-author" style="font-size: 1.2rem;">${item.author}</span>
-                    <span class="news-date">${item.date}</span>
-                </div>
-            </div>
-            <p style="font-size: 1.2rem; line-height: 1.8; color: #ddd;">${item.fullContent}</p>
-        </div>
+        <button class="close-btn-classic" onclick="closeNews()">ՓԱԿԵԼ</button>
+        <h1 class="serif" style="color: var(--primary-navy); margin-bottom: 20px;">${n.author}</h1>
+        <p style="color: var(--accent-gold); font-weight: 700; margin-bottom: 20px;">${n.date}</p>
+        <div class="classic-content">${n.fullContent}</div>
     `;
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
@@ -375,30 +211,10 @@ function closeNews() {
     document.body.style.overflow = 'auto';
 }
 
-// Mobile Menu Toggle
-function toggleMobileMenu() {
-    const links = document.getElementById('academy-links');
-    links.classList.toggle('active');
-
-    // Toggle icon state if desired, or simpler just toggle menu
-    // Prevent body scroll when menu is open? 
-    if (links.classList.contains('active')) {
-        document.body.style.overflow = 'hidden';
-    } else {
-        document.body.style.overflow = 'auto';
-    }
-}
-
-// Global click to close modals
-window.onclick = (e) => {
-    if (e.target.id === 'wiki-modal') closeWiki();
-    if (e.target.id === 'news-modal') closeNews();
-};
-
-window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-        if (typeof closeWiki === 'function') closeWiki();
-        if (typeof closeNews === 'function') closeNews();
-    }
+// INITIALIZATION
+document.addEventListener('DOMContentLoaded', () => {
+    populateStreams();
+    populateProjects();
+    populateNews();
 });
 
