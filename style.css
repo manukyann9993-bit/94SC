@@ -98,6 +98,48 @@ body {
     border-bottom-color: var(--accent-gold);
 }
 
+/* Dropdown Styles */
+.academy-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--primary-navy);
+    min-width: 220px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    display: none;
+    z-index: 1001;
+    border-top: 2px solid var(--accent-gold);
+}
+
+.dropdown-item {
+    color: white;
+    padding: 12px 20px;
+    text-decoration: none;
+    display: block;
+    font-size: 0.9rem;
+    transition: 0.2s;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dropdown-item:last-child {
+    border-bottom: none;
+}
+
+.dropdown-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--accent-gold);
+    padding-left: 25px;
+}
+
+.academy-dropdown:hover .dropdown-menu {
+    display: block;
+}
+
 /* 2. CLASSIC HERO SECTION */
 .hero-glass-max {
     background: var(--bg-parchment);

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="hy">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Հայտարարություններ - 94 Ավագ Դպրոց</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+Armenian:wght@400;700&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../style.css?v=3">
+    <style>
+        .announcements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .announcement-card {
+            background: white;
+            padding: 30px;
+            border: 1px solid var(--border-classic);
+            border-top: 5px solid var(--primary-navy);
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .announcement-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border-top-color: var(--accent-gold);
+        }
+
+        .announcement-date {
+            font-size: 0.85rem;
+            color: var(--accent-gold);
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .announcement-title {
+            font-size: 1.4rem;
+            color: var(--primary-navy);
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .announcement-body {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .btn-text {
+            color: var(--primary-navy);
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            border-bottom: 2px solid var(--accent-gold);
+            align-self: flex-start;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Simple Classic Nav -->
+    <nav class="academy-nav">
+        <div class="nav-brand-academy serif">94 Ավագ Դպրոց</div>
+        <div class="academy-links">
+            <a href="../index.html" class="academy-link">Գլխավոր</a>
+            <div class="academy-dropdown">
+                <a href="../index.html" class="academy-link active">Մեր դպրոցը</a>
+                <div class="dropdown-menu">
+                    <a href="management.html" class="dropdown-item">Տնորինություն</a>
+                    <a href="staff.html" class="dropdown-item">Աշխատակազմ</a>
+                    <a href="about.html" class="dropdown-item">Դպրոցի մասին</a>
+                    <a href="charter.html" class="dropdown-item">Կանոնադրություն</a>
+                    <a href="announcements.html" class="dropdown-item">Հայտարարություններ</a>
+                </div>
+            </div>
+            <a href="../streams.html" class="academy-link">Հոսքեր</a>
+            <a href="../news.html" class="academy-link">Նորություններ</a>
+            <a href="../history.html" class="academy-link">Պատմություն</a>
+        </div>
+    </nav>
+
+    <header class="hero-glass-max" style="padding: 40px 5%;">
+        <h1 class="serif">Հայտարարություններ</h1>
+    </header>
+
+    <main class="glass-section">
+        <div class="announcements-grid">
+            <!-- Card 1 -->
+            <div class="announcement-card reveal">
+                <div>
+                    <span class="announcement-date">Փետրվար 10, 2026</span>
+                    <h3 class="serif announcement-title">Ծնողական ժողով ավագ դպրոցի աշակերտների համար</h3>
+                    <p class="announcement-body">Հարգելի ծնողներ, հրավիրում ենք ձեզ մասնակցելու կիսամյակային ամփոփիչ
+                        ժողովին, որը տեղի կունենա դպրոցի դահլիճում ժամը 15:00-ին:</p>
+                </div>
+                <a href="#" class="btn-text">Կարդալ Ավելին</a>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="announcement-card reveal">
+                <div>
+                    <span class="announcement-date">Փետրվար 05, 2026</span>
+                    <h3 class="serif announcement-title">Ընդունելություն 2026-2027 ուսումնական տարվա համար</h3>
+                    <p class="announcement-body">Սկսվում է նախնական հայտագրումը 94 ավագ դպրոցի տարբեր հոսքերում
+                        ընդունվելու համար: Մանրամասների համար դիմել տնորինությանը:</p>
+                </div>
+                <a href="#" class="btn-text">Կարդալ Ավելին</a>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="announcement-card reveal">
+                <div>
+                    <span class="announcement-date">Հունվար 28, 2026</span>
+                    <h3 class="serif announcement-title">Օլիմպիադայի ներդպրոցական փուլի արդյունքները</h3>
+                    <p class="announcement-body">Հայտնի են մաթեմատիկայի և ֆիզիկայի առարկայական օլիմպիադաների
+                        ներդպրոցական փուլի հաղթողների անունները: Շնորհավորում ենք բոլորին:</p>
+                </div>
+                <a href="#" class="btn-text">Կարդալ Ավելին</a>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="announcement-card reveal">
+                <div>
+                    <span class="announcement-date">Հունվար 15, 2026</span>
+                    <h3 class="serif announcement-title">Շախմատի ներդպրոցական առաջնություն</h3>
+                    <p class="announcement-body">Հաջորդ շաբաթ մեկնարկում է դպրոցի շախմատի առաջնությունը: Ցանկացողները
+                        կարող են գրանցվել մինչև ուրբաթ:</p>
+                </div>
+                <a href="#" class="btn-text">Կարդալ Ավելին</a>
+            </div>
+        </div>
+    </main>
+
+    <script src="../script.js?v=3"></script>
+</body>
+
+</html>

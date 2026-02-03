@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="hy">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Կանոնադրություն - 94 Ավագ Դպրոց</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+Armenian:wght@400;700&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../style.css?v=3">
+    <style>
+        .charter-list {
+            list-style: none;
+            counter-reset: rule-counter;
+            padding: 0;
+        }
+
+        .charter-list li {
+            counter-increment: rule-counter;
+            margin-bottom: 30px;
+            padding: 25px;
+            background: white;
+            border: 1px solid var(--border-classic);
+            position: relative;
+            transition: 0.3s;
+        }
+
+        .charter-list li:hover {
+            border-color: var(--accent-gold);
+            transform: translateX(10px);
+        }
+
+        .charter-list li::before {
+            content: counter(rule-counter) ".";
+            position: absolute;
+            left: -40px;
+            top: 20px;
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--accent-gold);
+            font-weight: 700;
+        }
+
+        @media (max-width: 800px) {
+            .charter-list li::before {
+                position: static;
+                display: block;
+                margin-bottom: 10px;
+            }
+
+            .charter-list {
+                padding-left: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Simple Classic Nav -->
+    <nav class="academy-nav">
+        <div class="nav-brand-academy serif">94 Ավագ Դպրոց</div>
+        <div class="academy-links">
+            <a href="../index.html" class="academy-link">Գլխավոր</a>
+            <div class="academy-dropdown">
+                <a href="../index.html" class="academy-link active">Մեր դպրոցը</a>
+                <div class="dropdown-menu">
+                    <a href="management.html" class="dropdown-item">Տնորինություն</a>
+                    <a href="staff.html" class="dropdown-item">Աշխատակազմ</a>
+                    <a href="about.html" class="dropdown-item">Դպրոցի մասին</a>
+                    <a href="charter.html" class="dropdown-item">Կանոնադրություն</a>
+                    <a href="announcements.html" class="dropdown-item">Հայտարարություններ</a>
+                </div>
+            </div>
+            <a href="../streams.html" class="academy-link">Հոսքեր</a>
+            <a href="../news.html" class="academy-link">Նորություններ</a>
+            <a href="../history.html" class="academy-link">Պատմություն</a>
+        </div>
+    </nav>
+
+    <header class="hero-glass-max" style="padding: 40px 5%;">
+        <h1 class="serif">Դպրոցի Կանոնադրություն</h1>
+    </header>
+
+    <main class="glass-section" style="max-width: 900px;">
+        <div class="section-header-centered">
+            <h2 class="serif">Ներքին Կարգապահական Կանոններ</h2>
+        </div>
+
+        <ol class="charter-list">
+            <li class="reveal">
+                <h3 class="serif" style="color: var(--primary-navy);">Դպրոցական հաճախումներ</h3>
+                <p>Աշակերտները պարտավոր են ներկայանալ դասերին ժամանակին: Ուշացումները և անհարգելի բացակայությունները չեն
+                    խրախուսվում և կարող են հանգեցնել կարգապահական տույժերի:</p>
+            </li>
+            <li class="reveal">
+                <h3 class="serif" style="color: var(--primary-navy);">Արտաքին տեսք և համազգեստ</h3>
+                <p>Դպրոցում գործում է սահմանված համազգեստ: Աշակերտները պետք է լինեն կոկիկ և համապատասխանեն ակադեմիական
+                    միջավայրի պահանջներին:</p>
+            </li>
+            <li class="reveal">
+                <h3 class="serif" style="color: var(--primary-navy);">Վարվելակերպ և էթիկա</h3>
+                <p>Յուրաքանչյուր աշակերտ պարտավոր է հարգալից վերաբերմունք ցուցաբերել ուսուցիչների, աշխատակազմի և
+                    համադասարանցիների նկատմամբ: Ցանկացած տեսակի բուլինգ կամ անհարգալից վարք խստիվ արգելվում է:</p>
+            </li>
+            <li class="reveal">
+                <h3 class="serif" style="color: var(--primary-navy);">Դպրոցական գույքի պահպանում</h3>
+                <p>Աշակերտները կրում են պատասխանատվություն դպրոցական գույքի և շենքի մաքրության համար: Գույքի դիտավորյալ
+                    վնասումը ենթակա է փոխհատուցման:</p>
+            </li>
+            <li class="reveal">
+                <h3 class="serif" style="color: var(--primary-navy);">Էլեկտրոնային սարքերի օգտագործում</h3>
+                <p>Բջջային հեռախոսների և այլ էլեկտրոնային սարքերի օգտագործումը դասերի ժամանակ թույլատրվում է միայն
+                    ուսուցչի թույլտվությամբ՝ ուսումնական նպատակներով:</p>
+            </li>
+        </ol>
+    </main>
+
+    <script src="../script.js?v=3"></script>
+</body>
+
+</html>

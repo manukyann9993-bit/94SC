@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="hy">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Տնորինություն - 94 Ավագ Դպրոց</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+Armenian:wght@400;700&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../style.css?v=3">
+    <style>
+        .management-featured {
+            display: flex;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 80px;
+            background: var(--bg-parchment);
+            padding: 40px;
+            border: 1px solid var(--border-classic);
+        }
+
+        .principal-img {
+            flex: 1;
+            max-width: 400px;
+            height: 500px;
+            background: #ddd;
+            border: 4px solid var(--accent-gold);
+            overflow: hidden;
+        }
+
+        .principal-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .principal-info {
+            flex: 1.5;
+        }
+
+        .vp-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .vp-card {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            background: white;
+            padding: 20px;
+            border: 1px solid var(--border-classic);
+        }
+
+        .vp-img {
+            width: 200px;
+            height: 250px;
+            background: #eee;
+            border: 2px solid var(--primary-navy);
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .vp-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .vp-info {
+            flex: 1;
+        }
+
+        .management-name {
+            font-size: 1.5rem;
+            color: var(--primary-navy);
+            margin-bottom: 10px;
+            border-bottom: 2px solid var(--accent-gold);
+            display: inline-block;
+        }
+
+        @media (max-width: 900px) {
+            .management-featured {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .vp-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Simple Classic Nav -->
+    <nav class="academy-nav">
+        <div class="nav-brand-academy serif">94 Ավագ Դպրոց</div>
+        <div class="academy-links">
+            <a href="../index.html" class="academy-link">Գլխավոր</a>
+            <div class="academy-dropdown">
+                <a href="../index.html" class="academy-link active">Մեր դպրոցը</a>
+                <div class="dropdown-menu">
+                    <a href="management.html" class="dropdown-item">Տնորինություն</a>
+                    <a href="staff.html" class="dropdown-item">Աշխատակազմ</a>
+                    <a href="about.html" class="dropdown-item">Դպրոցի մասին</a>
+                    <a href="charter.html" class="dropdown-item">Կանոնադրություն</a>
+                    <a href="announcements.html" class="dropdown-item">Հայտարարություններ</a>
+                </div>
+            </div>
+            <a href="../streams.html" class="academy-link">Հոսքեր</a>
+            <a href="../news.html" class="academy-link">Նորություններ</a>
+            <a href="../history.html" class="academy-link">Պատմություն</a>
+        </div>
+    </nav>
+
+    <header class="hero-glass-max" style="padding: 40px 5%;">
+        <h1 class="serif">Դպրոցի Տնորինություն</h1>
+    </header>
+
+    <main class="glass-section">
+        <!-- Principal Section -->
+        <div class="management-featured reveal">
+            <div class="principal-img">
+                <img src="../images/student_council.png" alt="Տնորեն" style="filter: grayscale(1);">
+            </div>
+            <div class="principal-info">
+                <span class="block-tag">Տնորեն</span>
+                <h2 class="serif management-name">Արմեն Հովհաննիսյան</h2>
+                <p style="font-size: 1.2rem; color: var(--text-deep); margin-top: 20px;">
+                    «Կրթությունն այն ամենահզոր զենքն է, որը դուք կարող եք օգտագործել աշխարհը փոխելու համար: Մեր դպրոցի
+                    առաքելությունն է ոչ միայն տալ գիտելիք, այլև կերտել արժանապատիվ քաղաքացի և ստեղծագործ անհատ:»
+                </p>
+                <p style="margin-top: 20px; color: var(--text-light);">
+                    Արմեն Հովհաննիսյանը ղեկավարում է 94 ավագ դպրոցը 2015 թվականից: Նա ունի ավելի քան 20 տարվա փորձ
+                    կրթական ոլորտում և հանդիսանում է բազմաթիվ գիտական հոդվածների հեղինակ:
+                </p>
+            </div>
+        </div>
+
+        <!-- Vice Principals Section -->
+        <div class="vp-grid">
+            <div class="vp-card reveal">
+                <div class="vp-img">
+                    <img src="../images/student_council.png" alt="Փոխտնորեն" style="filter: sepia(0.5);">
+                </div>
+                <div class="vp-info">
+                    <span class="block-tag">Ուսումնական մասով փոխտնորեն</span>
+                    <h3 class="serif management-name">Աննա Սարգսյան</h3>
+                    <p style="font-size: 0.95rem; color: var(--text-light);">
+                        Համակարգում է ուսումնական գործընթացը, պատասխանատու է դասացուցակների և կրթական ծրագրերի որակի
+                        համար:
+                    </p>
+                </div>
+            </div>
+
+            <div class="vp-card reveal">
+                <div class="vp-img">
+                    <img src="../images/student_council.png" alt="Փոխտնորեն" style="filter: sepia(0.3);">
+                </div>
+                <div class="vp-info">
+                    <span class="block-tag">Մասնագիտացված կրթական աջակցությունների գծով փոխտնորեն</span>
+                    <h3 class="serif management-name">Կարեն Գրիգորյան</h3>
+                    <p style="font-size: 0.95rem; color: var(--text-light);">
+                        Պատասխանատու է արտադասարանական միջոցառումների, աշակերտական խորհրդի և կարգապահական հարցերի համար:
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../script.js?v=3"></script>
+</body>
+
+</html>

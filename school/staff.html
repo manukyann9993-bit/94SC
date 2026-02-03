@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="hy">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Աշխատակազմ - 94 Ավագ Դպրոց</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+Armenian:wght@400;700&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../style.css?v=3">
+    <style>
+        .staff-category {
+            margin-bottom: 60px;
+        }
+
+        .category-title {
+            font-size: 2rem;
+            color: var(--primary-navy);
+            border-left: 5px solid var(--accent-gold);
+            padding-left: 15px;
+            margin-bottom: 30px;
+        }
+
+        .staff-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .teacher-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .teacher-circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: #f0f0f0;
+            border: 3px solid var(--accent-gold);
+            overflow: hidden;
+            margin-bottom: 15px;
+            transition: 0.3s;
+        }
+
+        .teacher-circle:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .teacher-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .teacher-name {
+            font-weight: 700;
+            color: var(--primary-navy);
+            font-size: 1.1rem;
+        }
+
+        .teacher-role {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Simple Classic Nav -->
+    <nav class="academy-nav">
+        <div class="nav-brand-academy serif">94 Ավագ Դպրոց</div>
+        <div class="academy-links">
+            <a href="../index.html" class="academy-link">Գլխավոր</a>
+            <div class="academy-dropdown">
+                <a href="../index.html" class="academy-link active">Մեր դպրոցը</a>
+                <div class="dropdown-menu">
+                    <a href="management.html" class="dropdown-item">Տնորինություն</a>
+                    <a href="staff.html" class="dropdown-item">Աշխատակազմ</a>
+                    <a href="about.html" class="dropdown-item">Դպրոցի մասին</a>
+                    <a href="charter.html" class="dropdown-item">Կանոնադրություն</a>
+                    <a href="announcements.html" class="dropdown-item">Հայտարարություններ</a>
+                </div>
+            </div>
+            <a href="../streams.html" class="academy-link">Հոսքեր</a>
+            <a href="../news.html" class="academy-link">Նորություններ</a>
+            <a href="../history.html" class="academy-link">Պատմություն</a>
+        </div>
+    </nav>
+
+    <header class="hero-glass-max" style="padding: 40px 5%;">
+        <h1 class="serif">Մանկավարժական Կազմ</h1>
+    </header>
+
+    <main class="glass-section">
+        <!-- Math Category -->
+        <section class="staff-category reveal">
+            <h2 class="serif category-title">Մաթեմատիկա և Ինֆորմատիկա</h2>
+            <div class="staff-grid">
+                <div class="teacher-card">
+                    <div class="teacher-circle">
+                        <img src="../images/student_council.png" alt="Teacher" style="filter: grayscale(1);">
+                    </div>
+                    <div class="teacher-name">Մարիամ Պետրոսյան</div>
+                    <div class="teacher-role">Մաթեմատիկայի ուսուցչուհի</div>
+                </div>
+                <div class="teacher-card">
+                    <div class="teacher-circle">
+                        <img src="../images/student_council.png" alt="Teacher" style="filter: grayscale(1);">
+                    </div>
+                    <div class="teacher-name">Տիգրան Ասատրյան</div>
+                    <div class="teacher-role">Ինֆորմատիկայի ուսուցիչ</div>
+                </div>
+                <!-- More teachers... -->
+            </div>
+        </section>
+
+        <!-- Armenian Language Category -->
+        <section class="staff-category reveal">
+            <h2 class="serif category-title">Հայոց լեզու և Գրականություն</h2>
+            <div class="staff-grid">
+                <div class="teacher-card">
+                    <div class="teacher-circle">
+                        <img src="../images/student_council.png" alt="Teacher" style="filter: grayscale(1);">
+                    </div>
+                    <div class="teacher-name">Սոնա Մանուկյան</div>
+                    <div class="teacher-role">Գրականության ուսուցչուհի</div>
+                </div>
+                <div class="teacher-card">
+                    <div class="teacher-circle">
+                        <img src="../images/student_council.png" alt="Teacher" style="filter: grayscale(1);">
+                    </div>
+                    <div class="teacher-name">Լիլիթ Գևորգյան</div>
+                    <div class="teacher-role">Լեզվաբան</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Science Category -->
+        <section class="staff-category reveal">
+            <h2 class="serif category-title">Բնագիտական առարկաներ</h2>
+            <div class="staff-grid">
+                <div class="teacher-card">
+                    <div class="teacher-circle">
+                        <img src="../images/student_council.png" alt="Teacher" style="filter: grayscale(1);">
+                    </div>
+                    <div class="teacher-name">Հայկ Երիցյան</div>
+                    <div class="teacher-role">Ֆիզիկայի ուսուցիչ</div>
+                </div>
+                <div class="teacher-card">
+                    <div class="teacher-circle">
+                        <img src="../images/student_council.png" alt="Teacher" style="filter: grayscale(1);">
+                    </div>
+                    <div class="teacher-name">Աննա Դանիելյան</div>
+                    <div class="teacher-role">Կենսաբանության ուսուցչուհի</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="../script.js?v=3"></script>
+</body>
+
+</html>
