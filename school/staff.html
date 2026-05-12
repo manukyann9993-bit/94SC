@@ -38,23 +38,22 @@
             align-items: center;
         }
 
-        .teacher-circle {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
+        .teacher-square {
+            width: 200px;
+            height: 200px;
             background: #f0f0f0;
-            border: 3px solid var(--accent-gold);
+            border: 1px solid var(--border-classic);
             overflow: hidden;
             margin-bottom: 15px;
             transition: 0.3s;
         }
 
-        .teacher-circle:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        .teacher-square:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
 
-        .teacher-circle img {
+        .teacher-square img {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -62,14 +61,15 @@
 
         .teacher-name {
             font-weight: 700;
-            color: var(--primary-navy);
-            font-size: 1.1rem;
+            color: #000;
+            font-size: 1.3rem;
+            margin-bottom: 4px;
         }
 
         .teacher-role {
-            font-size: 0.85rem;
-            color: var(--text-light);
-            margin-top: 5px;
+            font-size: 0.9rem;
+            color: #666;
+            font-weight: 400;
         }
     </style>
 </head>
@@ -106,66 +106,121 @@
     </header>
 
     <main class="glass-section">
-        <!-- Math Category -->
+        <!-- Humanities & Languages -->
         <section class="staff-category reveal">
-            <h2 class="serif category-title">Մաթեմատիկա և Ինֆորմատիկա</h2>
+            <h2 class="serif category-title">Հումանիտար առարկաներ և Լեզուներ</h2>
             <div class="staff-grid">
                 <div class="teacher-card">
-                    <div class="teacher-circle">
-                        <img src="../images/student_council.png" alt="Teacher" style="filter: grayscale(1);">
+                    <div class="teacher-square">
+                        <img src="../Teachers/Ընկեր Գրիգորյան (Հայոց Լեզու և Գրականություն).jpg" alt="Teacher">
                     </div>
-                    <div class="teacher-name">Մարիամ Պետրոսյան</div>
-                    <div class="teacher-role">Մաթեմատիկայի ուսուցչուհի</div>
+                    <div class="teacher-name">Ընկեր Գրիգորյան</div>
+                    <div class="teacher-role">Հայոց Լեզու և Գրականություն</div>
                 </div>
                 <div class="teacher-card">
-                    <div class="teacher-circle">
-                        <img src="../images/student_council.png" alt="Teacher" style="filter: grayscale(1);">
+                    <div class="teacher-square">
+                        <img src="../Teachers/Ընկեր Միռոյան (Անգլերեն).jpg" alt="Teacher">
                     </div>
-                    <div class="teacher-name">Տիգրան Ասատրյան</div>
-                    <div class="teacher-role">Ինֆորմատիկայի ուսուցիչ</div>
-                </div>
-                <!-- More teachers... -->
-            </div>
-        </section>
-
-        <!-- Armenian Language Category -->
-        <section class="staff-category reveal">
-            <h2 class="serif category-title">Հայոց լեզու և Գրականություն</h2>
-            <div class="staff-grid">
-                <div class="teacher-card">
-                    <div class="teacher-circle">
-                        <img src="../images/student_council.png" alt="Teacher" style="filter: grayscale(1);">
-                    </div>
-                    <div class="teacher-name">Սոնա Մանուկյան</div>
-                    <div class="teacher-role">Գրականության ուսուցչուհի</div>
-                </div>
-                <div class="teacher-card">
-                    <div class="teacher-circle">
-                        <img src="../images/student_council.png" alt="Teacher" style="filter: grayscale(1);">
-                    </div>
-                    <div class="teacher-name">Լիլիթ Գևորգյան</div>
-                    <div class="teacher-role">Լեզվաբան</div>
+                    <div class="teacher-name">Ընկեր Միռոյան</div>
+                    <div class="teacher-role">Անգլերեն</div>
                 </div>
             </div>
         </section>
 
-        <!-- Science Category -->
+        <!-- Science & Math -->
         <section class="staff-category reveal">
-            <h2 class="serif category-title">Բնագիտական առարկաներ</h2>
+            <h2 class="serif category-title">Բնագիտամաթեմատիկական առարկաներ</h2>
             <div class="staff-grid">
                 <div class="teacher-card">
-                    <div class="teacher-circle">
-                        <img src="../images/student_council.png" alt="Teacher" style="filter: grayscale(1);">
+                    <div class="teacher-square">
+                        <img src="../Teachers/Ընկեր Մանուկյան (Հանրահաշիվ և Երկրաչափություն).jpg" alt="Teacher">
                     </div>
-                    <div class="teacher-name">Հայկ Երիցյան</div>
-                    <div class="teacher-role">Ֆիզիկայի ուսուցիչ</div>
+                    <div class="teacher-name">Ընկեր Մանուկյան</div>
+                    <div class="teacher-role">Հանրահաշիվ և Երկրաչափություն</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Social Sciences -->
+        <section class="staff-category reveal">
+            <h2 class="serif category-title">Հասարակագիտական առարկաներ</h2>
+            <div class="staff-grid">
+                <div class="teacher-card">
+                    <div class="teacher-square">
+                        <img src="../Teachers/Ընկեր Աթոյան (Պատմություն).jpg" alt="Teacher">
+                    </div>
+                    <div class="teacher-name">Ընկեր Աթոյան</div>
+                    <div class="teacher-role">Պատմություն</div>
                 </div>
                 <div class="teacher-card">
-                    <div class="teacher-circle">
-                        <img src="../images/student_council.png" alt="Teacher" style="filter: grayscale(1);">
+                    <div class="teacher-square">
+                        <img src="../Teachers/Ընկեր Ավետիսյան (Պատմություն).jpg" alt="Teacher">
                     </div>
-                    <div class="teacher-name">Աննա Դանիելյան</div>
-                    <div class="teacher-role">Կենսաբանության ուսուցչուհի</div>
+                    <div class="teacher-name">Ընկեր Ավետիսյան</div>
+                    <div class="teacher-role">Պատմություն</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ICT & Tech -->
+        <section class="staff-category reveal">
+            <h2 class="serif category-title">ՏՀՏ և Տեխնոլոգիա</h2>
+            <div class="staff-grid">
+                <div class="teacher-card">
+                    <div class="teacher-square">
+                        <img src="../Teachers/Ընկեր Սարգսյան (ՏՀՏ).jpg" alt="Teacher">
+                    </div>
+                    <div class="teacher-name">Ընկեր Սարգսյան</div>
+                    <div class="teacher-role">ՏՀՏ</div>
+                </div>
+                <div class="teacher-card">
+                    <div class="teacher-square">
+                        <img src="../Teachers/Ընկեր Պապեյան (ԹԳՀԳ).jpg" alt="Teacher">
+                    </div>
+                    <div class="teacher-name">Ընկեր Պապեյան</div>
+                    <div class="teacher-role">ԹԳՀԳ</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Other Teachers -->
+        <section class="staff-category reveal">
+            <h2 class="serif category-title">Մանկավարժական կազմ</h2>
+            <div class="staff-grid">
+                <div class="teacher-card">
+                    <div class="teacher-square">
+                        <img src="../Teachers/photo_2026-05-12_13-37-38.jpg" alt="Teacher">
+                    </div>
+                    <div class="teacher-name">Ընկեր...</div>
+                    <div class="teacher-role">Մանկավարժ</div>
+                </div>
+                <div class="teacher-card">
+                    <div class="teacher-square">
+                        <img src="../Teachers/photo_2026-05-12_13-37-41.jpg" alt="Teacher">
+                    </div>
+                    <div class="teacher-name">Ընկեր...</div>
+                    <div class="teacher-role">Մանկավարժ</div>
+                </div>
+                <div class="teacher-card">
+                    <div class="teacher-square">
+                        <img src="../Teachers/photo_2026-05-12_13-37-42.jpg" alt="Teacher">
+                    </div>
+                    <div class="teacher-name">Ընկեր...</div>
+                    <div class="teacher-role">Մանկավարժ</div>
+                </div>
+                <div class="teacher-card">
+                    <div class="teacher-square">
+                        <img src="../Teachers/photo_2026-05-12_13-37-43.jpg" alt="Teacher">
+                    </div>
+                    <div class="teacher-name">Ընկեր...</div>
+                    <div class="teacher-role">Մանկավարժ</div>
+                </div>
+                <div class="teacher-card">
+                    <div class="teacher-square">
+                        <img src="../Teachers/photo_2026-05-12_13-37-44.jpg" alt="Teacher">
+                    </div>
+                    <div class="teacher-name">Ընկեր...</div>
+                    <div class="teacher-role">Մանկավարժ</div>
                 </div>
             </div>
         </section>
