@@ -56,7 +56,7 @@ body {
     position: sticky;
     top: 0;
     width: 100%;
-    height: 70px;
+    height: 80px;
     background: var(--primary-navy);
     color: white;
     display: flex;
@@ -65,6 +65,22 @@ body {
     padding: 0 5%;
     z-index: 1000;
     border-bottom: 4px solid var(--accent-gold);
+}
+
+/* Mobile Menu Toggle */
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.nav-toggle span {
+    width: 30px;
+    height: 2px;
+    background: white;
+    transition: 0.3s;
 }
 
 .nav-brand-academy {
@@ -430,54 +446,67 @@ body {
 }
 
 /* 7. RESPONSIVE ADJUSTMENTS for MOBILE */
-@media (max-width: 768px) {
-    .academy-nav {
-        height: auto;
-        padding: 15px 5%;
-        flex-direction: column;
-        gap: 15px;
-    }
-
+@media (max-width: 1024px) {
     .academy-links {
-        width: 100%;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 15px;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 400px;
+        height: 100vh;
+        background: var(--primary-navy);
+        flex-direction: column;
+        padding: 100px 40px;
+        transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+        align-items: flex-start;
+        gap: 20px;
     }
 
-    .hero-content-unified h1 {
-        font-size: 2.5rem;
-        padding: 0 10px;
+    .academy-links.active {
+        right: 0;
     }
 
-    .hero-content-unified p {
-        font-size: 1rem;
-        padding: 0 20px;
+    .nav-toggle {
+        display: flex;
     }
 
-    /* Mobile Dropdown Fix */
+    .nav-toggle.active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .nav-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .nav-toggle.active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
     .academy-dropdown {
         width: 100%;
-        text-align: center;
     }
 
     .dropdown-menu {
         position: static;
         transform: none;
         width: 100%;
-        display: block;
-        /* Always show sub-menu items on mobile for accessibility */
-        background: rgba(255, 255, 255, 0.03);
+        display: none;
+        background: rgba(255, 255, 255, 0.05);
         box-shadow: none;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        margin-top: 10px;
     }
 
-    .dropdown-item {
-        padding: 10px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    .academy-dropdown.active .dropdown-menu {
+        display: block;
     }
 
+    .hero-content-unified h1 {
+        font-size: 2.8rem;
+    }
+}
+
+@media (max-width: 768px) {
     .hero-visual-panoramic {
         height: 250px;
     }
@@ -490,28 +519,23 @@ body {
 
     .block-visual {
         width: 100%;
-        height: auto !important;
-        max-height: 300px;
-    }
-
-    .principal-img {
-        height: 350px !important;
+        height: 250px !important;
     }
 
     .glass-section {
-        padding: 60px 5%;
+        padding: 80px 5%;
     }
 
     .section-header-centered h2 {
         font-size: 2rem;
     }
 
-    .news-img {
-        height: 250px;
+    .announcements-container {
+        grid-template-columns: 1fr !important;
     }
 
-    .app-portal-frame {
-        padding: 30px 20px;
+    .stat-number {
+        font-size: 2.5rem !important;
     }
 }
 

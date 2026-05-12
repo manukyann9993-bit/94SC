@@ -214,4 +214,27 @@ document.addEventListener('DOMContentLoaded', () => {
     populateLatestNews();
     initScrollReveal();
     initCounters();
+
+    // Mobile Menu Toggle
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.academy-links');
+    const dropdowns = document.querySelectorAll('.academy-dropdown');
+
+    if (navToggle) {
+        navToggle.addEventListener('click', () => {
+            navToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+    }
+
+    // Mobile Dropdown Toggle
+    dropdowns.forEach(dropdown => {
+        const link = dropdown.querySelector('.academy-link');
+        link.addEventListener('click', (e) => {
+            if (window.innerWidth <= 1024) {
+                e.preventDefault();
+                dropdown.classList.toggle('active');
+            }
+        });
+    });
 });
