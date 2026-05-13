@@ -11,72 +11,212 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Armenian:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../style.css?v=3">
     <style>
-        .schedule-container {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 20px;
-            background: white;
-            border: 1px solid var(--border-classic);
+        :root {
+            --lesson-bg: #ffffff;
+            --lesson-hover: #fcfaf2;
         }
 
-        .schedule-title {
+        .schedule-hero {
+            background: var(--primary-navy);
+            color: white;
+            padding: 60px 5%;
             text-align: center;
-            color: var(--primary-navy);
             margin-bottom: 30px;
-            font-size: 2rem;
-            border-bottom: 2px solid var(--accent-gold);
-            display: inline-block;
-            padding-bottom: 10px;
+        }
+
+        .filter-container {
+            max-width: 800px;
+            margin: -30px auto 40px;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .filter-select {
+            padding: 12px 25px;
+            border: 2px solid var(--border-classic);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            color: var(--primary-navy);
+            background: white;
+            cursor: pointer;
+            min-width: 200px;
+            transition: 0.3s;
+        }
+
+        .filter-select:focus {
+            border-color: var(--accent-gold);
+            outline: none;
+        }
+
+        .schedule-container {
+            max-width: 1200px;
+            margin: 0 auto 60px;
+            padding: 0 20px;
         }
 
         .class-schedule {
-            margin-bottom: 50px;
+            margin-bottom: 60px;
+            display: none; /* Hidden by default, shown by JS */
+        }
+
+        .class-schedule.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .class-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            border-bottom: 2px solid var(--accent-gold);
+            padding-bottom: 10px;
         }
 
         .class-name {
+            font-size: 2.2rem;
             color: var(--primary-navy);
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            background: var(--bg-parchment);
-            padding: 10px 20px;
-            border-left: 4px solid var(--accent-gold);
+            margin: 0;
+        }
+
+        /* Desktop Table Styles */
+        .desktop-table-wrapper {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-classic);
         }
 
         .schedule-table {
             width: 100%;
             border-collapse: collapse;
-            font-family: 'Noto Sans Armenian', sans-serif;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-        }
-
-        .schedule-table th, .schedule-table td {
-            border: 1px solid var(--border-classic);
-            padding: 12px;
-            text-align: center;
         }
 
         .schedule-table th {
-            background-color: var(--primary-navy);
+            background: var(--primary-navy);
             color: white;
+            padding: 18px;
             font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
         }
 
-        .schedule-table tr:nth-child(even) {
-            background-color: #fcfcfc;
-        }
-
-        .schedule-table tr:hover {
-            background-color: #f5f5dc;
-        }
-
-        .coming-soon {
+        .schedule-table td {
+            padding: 15px;
             text-align: center;
-            font-size: 1.5rem;
+            border-bottom: 1px solid #eee;
+            transition: 0.2s;
+        }
+
+        .schedule-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .schedule-table tr:hover td {
+            background: var(--lesson-hover);
+        }
+
+        .lesson-num {
+            font-weight: 700;
             color: var(--accent-gold);
-            margin: 60px 0;
-            padding: 40px;
-            background: var(--bg-parchment);
-            border: 1px dashed var(--accent-gold);
+            width: 50px;
+        }
+
+        /* Mobile Schedule Styles */
+        .mobile-schedule {
+            display: none;
+        }
+
+        .day-tabs {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+            scrollbar-width: none;
+        }
+
+        .day-tabs::-webkit-scrollbar {
+            display: none;
+        }
+
+        .day-tab {
+            padding: 10px 20px;
+            background: #eee;
+            border-radius: 30px;
+            white-space: nowrap;
+            cursor: pointer;
+            font-weight: 700;
+            color: #666;
+            transition: 0.3s;
+        }
+
+        .day-tab.active {
+            background: var(--accent-gold);
+            color: var(--primary-navy);
+        }
+
+        .mobile-day-content {
+            display: none;
+        }
+
+        .mobile-day-content.active {
+            display: block;
+        }
+
+        .lesson-card {
+            background: white;
+            margin-bottom: 12px;
+            padding: 20px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.03);
+            border: 1px solid #eee;
+            border-left: 5px solid var(--accent-gold);
+        }
+
+        .card-num {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-navy);
+            opacity: 0.3;
+            min-width: 30px;
+        }
+
+        .card-subject {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary-navy);
+        }
+
+        @media (max-width: 900px) {
+            .desktop-table-wrapper {
+                display: none;
+            }
+            .mobile-schedule {
+                display: block;
+            }
+            .class-name {
+                font-size: 1.8rem;
+            }
         }
     </style>
 </head>
@@ -108,15 +248,19 @@
         </div>
     </nav>
 
-    <header class="hero-glass-max" style="padding: 40px 5%;">
+    <div class="schedule-hero">
         <h1 class="serif">Դպրոցի Դասացուցակ</h1>
-    </header>
+        <p style="opacity: 0.8; font-size: 1.1rem;">2023-2024 Ուսումնական Տարի</p>
+    </div>
 
-    <main class="glass-section" style="background: transparent; box-shadow: none;">
-        <div class="schedule-container">
-            <div style="text-align: center;">
-                <h2 class="serif schedule-title">2023-2024 Ուսումնական Տարի</h2>
-            </div>
+    <div class="filter-container">
+        <select id="classFilter" class="filter-select">
+            <option value="">Ընտրեք դասարանը</option>
+            <!-- Options will be populated by script -->
+        </select>
+    </div>
+
+    <main class="schedule-container">
 
             <div class="class-schedule reveal">
                 <h3 class="serif class-name">Դասարան՝ X-1</h3>
@@ -1115,6 +1259,107 @@
         </div>
     </main>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const classFilter = document.getElementById('classFilter');
+            const classSchedules = document.querySelectorAll('.class-schedule');
+            const days = ['Երկուշաբթի', 'Երեքշաբթի', 'Չորեքշաբթի', 'Հինգշաբթի', 'Ուրբաթ'];
+
+            classSchedules.forEach((schedule, index) => {
+                const classNameElement = schedule.querySelector('.class-name');
+                if (!classNameElement) return;
+
+                const className = classNameElement.textContent.replace('Դասարան՝ ', '');
+                
+                // Populate Filter
+                const option = document.createElement('option');
+                option.value = index;
+                option.textContent = className;
+                classFilter.appendChild(option);
+
+                // Add Class Header
+                const header = document.createElement('div');
+                header.className = 'class-header';
+                classNameElement.parentNode.insertBefore(header, classNameElement);
+                header.appendChild(classNameElement);
+
+                // Wrap Table for Desktop
+                const tableContainer = schedule.querySelector('div[style*="overflow-x: auto"]');
+                if (tableContainer) {
+                    tableContainer.className = 'desktop-table-wrapper';
+                    tableContainer.removeAttribute('style');
+                }
+
+                // Generate Mobile View
+                const mobileView = document.createElement('div');
+                mobileView.className = 'mobile-schedule';
+                
+                // Day Tabs
+                const dayTabs = document.createElement('div');
+                dayTabs.className = 'day-tabs';
+                
+                const table = schedule.querySelector('table');
+                if (!table) return;
+
+                const rows = table.querySelectorAll('tbody tr');
+
+                days.forEach((day, dayIndex) => {
+                    const tab = document.createElement('div');
+                    tab.className = `day-tab ${dayIndex === 0 ? 'active' : ''}`;
+                    tab.textContent = day;
+                    tab.onclick = () => {
+                        mobileView.querySelectorAll('.day-tab').forEach(t => t.classList.remove('active'));
+                        mobileView.querySelectorAll('.mobile-day-content').forEach(c => c.classList.remove('active'));
+                        tab.classList.add('active');
+                        mobileView.querySelector(`.day-content-${dayIndex}`).classList.add('active');
+                    };
+                    dayTabs.appendChild(tab);
+
+                    const dayContent = document.createElement('div');
+                    dayContent.className = `mobile-day-content day-content-${dayIndex} ${dayIndex === 0 ? 'active' : ''}`;
+                    
+                    rows.forEach(row => {
+                        const cells = row.querySelectorAll('td');
+                        const lessonNum = cells[0].textContent;
+                        const subject = cells[dayIndex + 1] ? cells[dayIndex + 1].textContent.trim() : '';
+                        
+                        if (subject) {
+                            const card = document.createElement('div');
+                            card.className = 'lesson-card';
+                            card.innerHTML = `
+                                <div class="card-num">${lessonNum}</div>
+                                <div class="card-subject">${subject}</div>
+                            `;
+                            dayContent.appendChild(card);
+                        }
+                    });
+                    mobileView.appendChild(dayContent);
+                });
+
+                mobileView.insertBefore(dayTabs, mobileView.firstChild);
+                schedule.appendChild(mobileView);
+            });
+
+            // Filter logic
+            classFilter.addEventListener('change', function() {
+                const selectedIndex = this.value;
+                classSchedules.forEach((s, i) => {
+                    if (selectedIndex === "" || i == selectedIndex) {
+                        s.classList.add('active');
+                        s.classList.add('reveal');
+                    } else {
+                        s.classList.remove('active');
+                    }
+                });
+            });
+
+            // Show first class by default if no selection
+            if (classSchedules.length > 0) {
+                classSchedules[0].classList.add('active');
+                classFilter.value = 0;
+            }
+        });
+    </script>
     <script src="../script.js?v=3"></script>
 </body>
 </html>
