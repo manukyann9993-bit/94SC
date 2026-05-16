@@ -53,20 +53,31 @@ const streamsData = [
 
 const newsData = [
     {
+        id: 4,
+        author: "Տնօրինություն",
+        date: "10 Մայիս, 2026",
+        image: "images/94dproc.jpg",
+        url: "news_pages/hungary_ambassador.html",
+        content: "Հունգարիայի դեսպանը այցելեց մեր դպրոց",
+        summary: "Հայաստանում Հունգարիայի արտակարգ և լիազոր դեսպանը այցելեց Գուրգեն Մարգարյանի անվան թիվ 94 ավագ դպրոց։"
+    },
+    {
         id: 3,
-        author: "Գրադարանավար",
-        date: "01 Մարտ, 2024",
-        image: "images/stream_history.png",
-        content: "Գրադարանը համալրվել է նոր մասնագիտական գրականությամբ...",
-        fullContent: "Ուրախությամբ տեղեկացնում ենք, որ մեր գրադարանը համալրվել է նոր մասնագիտական և գեղարվեստական գրականությամբ: Բոլոր ցանկացողները կարող են այցելել և ծանոթանալ նոր գրքերին:"
+        author: "Աշակերտական Խորհուրդ",
+        date: "08 Մարտ, 2026",
+        image: "images/94dproc.jpg",
+        url: "news_pages/march_8.html",
+        content: "Մարտի 8-ի տոնական միջոցառում",
+        summary: "Դպրոցում մեծ շուքով նշվեց Կանանց միջազգային օրը՝ Մարտի 8-ը։"
     },
     {
         id: 2,
-        author: "Աշակերտական Խորհուրդ",
-        date: "15 Փետրվար, 2024",
-        image: "images/stream_ict.png",
-        content: "Մեր դպրոցի թիմը հաղթանակ տարավ ինտելեկտուալ խաղում...",
-        fullContent: "Մեր դպրոցի թիմը փայլուն հաղթանակ տարավ քաղաքային ինտելեկտուալ խաղում՝ գրավելով առաջին պատվավոր տեղը: Շնորհավորում ենք թիմի անդամներին և մաղթում նորանոր հաջողություններ:"
+        author: "Գրադարանավար",
+        date: "01 Մարտ, 2024",
+        image: "images/stream_history.png",
+        url: "news.html",
+        content: "Գրադարանը համալրվել է նոր մասնագիտական գրականությամբ...",
+        summary: "Ուրախությամբ տեղեկացնում ենք, որ մեր գրադարանը համալրվել է նոր մասնագիտական և գեղարվեստական գրականությամբ:"
     }
 ];
 
@@ -89,10 +100,6 @@ function populateStreams() {
     `).join('');
 }
 
-// Removed populateProjects function as per instruction.
-
-// Removed openWiki and closeWiki functions as per instruction to link to separate pages.
-
 // POPULATE NEWS (ARTICLE LAYOUT)
 function populateNews() {
     const grid = document.getElementById('news-grid');
@@ -107,13 +114,12 @@ function populateNews() {
                     <span>${n.date}</span>
                 </div>
                 <h3 class="serif">${n.content}</h3>
-                <a href="news.html" class="btn-classic">Կարդալ Ամբողջը</a>
+                <p style="font-size: 0.95rem; color: var(--text-light); margin-bottom: 20px;">${n.summary}</p>
+                <a href="${n.url}" class="btn-classic">Կարդալ Ամբողջը</a>
             </div>
         </article>
     `).join('');
 }
-
-// Removed openNews and closeNews functions as per instruction to link to separate pages.
 
 // POPULATE LATEST NEWS (for home page)
 function populateLatestNews() {
@@ -132,7 +138,8 @@ function populateLatestNews() {
                     <span>${n.date}</span>
                 </div>
                 <h3 class="serif">${n.content}</h3>
-                <a href="news.html" class="btn-classic">Կարդալ Ամբողջը</a>
+                <p style="font-size: 0.95rem; color: var(--text-light); margin-bottom: 20px;">${n.summary}</p>
+                <a href="${n.url}" class="btn-classic">Կարդալ Ամբողջը</a>
             </div>
         </article>
     `).join('');
@@ -146,7 +153,6 @@ function initScrollReveal() {
             if (entry.isIntersecting) {
                 entry.target.classList.add('active');
             } else {
-                // Remove the class when it leaves the viewport to allow re-triggering
                 entry.target.classList.remove('active');
             }
         });
@@ -165,7 +171,7 @@ function initCounters() {
 
         const target = +el.getAttribute('data-target');
         const suffix = el.getAttribute('data-suffix') || '';
-        const duration = 2000; // Slightly faster for re-triggers
+        const duration = 2000; 
         const startTime = performance.now();
 
         const run = () => {
@@ -197,7 +203,6 @@ function initCounters() {
             if (entry.isIntersecting) {
                 animateShuffle(entry.target);
             } else {
-                // Reset counter to 0 so it's ready to shuffle again when it returns
                 const suffix = entry.target.getAttribute('data-suffix') || '';
                 entry.target.innerText = '0' + suffix;
             }
