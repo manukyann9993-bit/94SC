@@ -44,8 +44,8 @@ const streamsData = [
     {
         id: 'art',
         url: 'streams/art.html',
-        title: 'Արվեստ',
-        summary: 'Ստեղծագործական հմտությունների զարգացում',
+        title: 'Դիզայն',
+        summary: 'Ստեղծագործական հմտությունների և դիզայնի զարգացում',
         img: 'images/stream_art.png'
     }
 ];
