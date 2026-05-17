@@ -65,7 +65,7 @@ const newsData = [
         id: 3,
         author: "Աշակերտական Խորհուրդ",
         date: "08 Մարտ, 2026",
-        image: "images/94dproc.jpg",
+        image: "news_pages/March-8-Photos-And-Videos/Dancer.png",
         url: "news_pages/march_8.html",
         content: "Մարտի 8-ի տոնական միջոցառում",
         summary: "Դպրոցում մեծ շուքով նշվեց Կանանց միջազգային օրը՝ Մարտի 8-ը։"
