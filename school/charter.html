@@ -12,51 +12,6 @@
         href="https://fonts.googleapis.com/css2?family=Noto+Sans+Armenian:wght@400;700&family=Playfair+Display:wght@700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="../style.css?v=3">
-    <style>
-        .charter-list {
-            list-style: none;
-            counter-reset: rule-counter;
-            padding: 0;
-        }
-
-        .charter-list li {
-            counter-increment: rule-counter;
-            margin-bottom: 30px;
-            padding: 25px;
-            background: white;
-            border: 1px solid var(--border-classic);
-            position: relative;
-            transition: 0.3s;
-        }
-
-        .charter-list li:hover {
-            border-color: var(--accent-gold);
-            transform: translateX(10px);
-        }
-
-        .charter-list li::before {
-            content: counter(rule-counter) ".";
-            position: absolute;
-            left: -40px;
-            top: 20px;
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            color: var(--accent-gold);
-            font-weight: 700;
-        }
-
-        @media (max-width: 800px) {
-            .charter-list li::before {
-                position: static;
-                display: block;
-                margin-bottom: 10px;
-            }
-
-            .charter-list {
-                padding-left: 0;
-            }
-        }
-    </style>
 </head>
 
 <body>
@@ -91,37 +46,18 @@
     </header>
 
     <main class="glass-section" style="max-width: 900px;">
-        <div class="section-header-centered">
-            <h2 class="serif">Ներքին Կարգապահական Կանոններ</h2>
+        <div style="text-align: center; padding: 60px 20px; background: white; border: 4px solid var(--accent-gold); border-radius: 10px;">
+            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round"
+                style="color: var(--accent-gold); margin-bottom: 20px;">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            <h3 class="serif" style="font-size: 2rem; color: var(--primary-navy); margin-bottom: 15px;">Շուտով...</h3>
+            <p style="font-size: 1.1rem; color: var(--text-deep); line-height: 1.8;">
+                Դպրոցի պաշտոնական կանոնադրությունը գտնվում է թվայնացման փուլում:<br>Շուտով այն հասանելի կլինի այստեղ՝ բոլորի համար:
+            </p>
         </div>
-
-        <ol class="charter-list">
-            <li class="reveal">
-                <h3 class="serif" style="color: var(--primary-navy);">Դպրոցական հաճախումներ</h3>
-                <p>Աշակերտները պարտավոր են ներկայանալ դասերին ժամանակին: Ուշացումները և անհարգելի բացակայությունները չեն
-                    խրախուսվում և կարող են հանգեցնել կարգապահական տույժերի:</p>
-            </li>
-            <li class="reveal">
-                <h3 class="serif" style="color: var(--primary-navy);">Արտաքին տեսք և համազգեստ</h3>
-                <p>Դպրոցում գործում է սահմանված համազգեստ: Աշակերտները պետք է լինեն կոկիկ և համապատասխանեն ակադեմիական
-                    միջավայրի պահանջներին:</p>
-            </li>
-            <li class="reveal">
-                <h3 class="serif" style="color: var(--primary-navy);">Վարվելակերպ և էթիկա</h3>
-                <p>Յուրաքանչյուր աշակերտ պարտավոր է հարգալից վերաբերմունք ցուցաբերել ուսուցիչների, աշխատակազմի և
-                    համադասարանցիների նկատմամբ: Ցանկացած տեսակի բուլինգ կամ անհարգալից վարք խստիվ արգելվում է:</p>
-            </li>
-            <li class="reveal">
-                <h3 class="serif" style="color: var(--primary-navy);">Դպրոցական գույքի պահպանում</h3>
-                <p>Աշակերտները կրում են պատասխանատվություն դպրոցական գույքի և շենքի մաքրության համար: Գույքի դիտավորյալ
-                    վնասումը ենթակա է փոխհատուցման:</p>
-            </li>
-            <li class="reveal">
-                <h3 class="serif" style="color: var(--primary-navy);">Էլեկտրոնային սարքերի օգտագործում</h3>
-                <p>Բջջային հեռախոսների և այլ էլեկտրոնային սարքերի օգտագործումը դասերի ժամանակ թույլատրվում է միայն
-                    ուսուցչի թույլտվությամբ՝ ուսումնական նպատակներով:</p>
-            </li>
-        </ol>
     </main>
 
     <script src="../script.js?v=3"></script>
