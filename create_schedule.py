@@ -963,7 +963,7 @@ html_content = """<!DOCTYPE html>
 <body>
     <!-- Simple Classic Nav -->
     <nav class="academy-nav">
-        <div class="nav-brand-academy serif">94 Ավագ Դպրոց</div>
+        <div class="nav-brand-academy serif">Գ․ Մարգարյանի Անվան 94 Ավագ Դպրոց</div>
         <div class="academy-links">
             <div class="academy-dropdown">
                 <a href="../index.html" class="academy-link">Մեր դպրոցը</a>
