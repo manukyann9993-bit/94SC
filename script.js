@@ -56,7 +56,7 @@ const newsData = [
         id: 4,
         author: "Տնօրինություն",
         date: "10 Մայիս, 2026",
-        image: "images/94dproc.jpg",
+        image: "news_pages/hungary_ambassador.jpg",
         url: "news_pages/hungary_ambassador.html",
         content: "Հունգարիայի դեսպանը այցելեց մեր դպրոց",
         summary: "Հայաստանում Հունգարիայի արտակարգ և լիազոր դեսպանը այցելեց Գուրգեն Մարգարյանի անվան թիվ 94 ավագ դպրոց։"
